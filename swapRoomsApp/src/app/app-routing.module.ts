@@ -1,9 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import {OpeningPageComponent} from './opening-page/opening-page.component'
+import {LoginComponent} from './login/login.component'
+import {SignUpComponent} from './sign-up/sign-up.component'
 
 const routes: Routes = [
-  //{ path: 'pageName', component: pageNameComponent },   // create the component and fill in path and 
-  //{ path: 'pageName', component:  pageNameComponent}     // component name and it should route the page 
+  { path: '', component: OpeningPageComponent },  // sign up will be home page
+  { path: 'Login', component:  LoginComponent},
+  {path : 'Sign-Up', component: SignUpComponent}
 ];
 
 @NgModule({
@@ -11,3 +15,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+export const routingComponents = [OpeningPageComponent, LoginComponent, SignUpComponent]

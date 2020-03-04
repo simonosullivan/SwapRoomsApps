@@ -1,0 +1,20 @@
+<h1>Sign Up for Swap Rooms</h1>
+
+<form  [formGroup]="signUpForm">
+
+  <label for="fname">First name:</label><br>
+  <input type="text" formControlName="fname">
+  <br>
+  <label for="lname">Last name:</label><br>
+  <input type="text" formControlName="lname">
+  <br>
+  <label for="email">Email:</label><br>
+  <input type="text" formControlName="email">
+  <br>
+  <label for="password">Password:</label><br>
+  <input type="password" formControlName="password">
+  <br>
+  <br>
+  <input type="submit" value="Submit" routerLink="/"/>
+
+</form>
