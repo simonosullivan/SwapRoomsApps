@@ -1,5 +1,5 @@
 <h1>Log In Here</h1>
-<form  [formGroup]="loginForm">
+<form  [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
   <label for="email">Email:</label><br>
   <input type="text" formControlName="email">
   <br>
@@ -7,6 +7,6 @@
   <input type="password" formControlName="password">
   <br>
   <br>
-  <input type="submit" value="Submit" routerLink="/"/>
+  <input type="submit" value="Submit" />
 
 </form>

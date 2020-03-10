@@ -6,8 +6,11 @@ import { AppComponent } from './app.component';
 import { OpeningPageComponent } from './opening-page/opening-page.component';
 import { LoginComponent } from './login/login.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
-
+import {HttpClientModule} from '@angular/common/http';
 import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule} from '@angular/forms';
+import { UserComponent } from './Model/user/user.component';
+import { ApiResponseComponent } from './Model/api-response/api-response.component';
 
 
 
@@ -17,12 +20,16 @@ import {ReactiveFormsModule} from '@angular/forms';
     routingComponents,
     OpeningPageComponent,
     LoginComponent,
-    SignUpComponent
+    SignUpComponent,
+    UserComponent,
+    ApiResponseComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

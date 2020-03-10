@@ -1,20 +1,32 @@
 <h1>Sign Up for Swap Rooms</h1>
+<div class="col-md-6 user-container">
+  <h2 class="text-center">Add User</h2>
+  <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="username">User Name:</label>
+      <input type="text" formControlName="username" placeholder="username"
+        name="username" class="form-control" id="username">
+    </div>
 
-<form  [formGroup]="signUpForm">
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" formControlName="password" placeholder="password"
+        name="password" class="form-control" id="password">
+    </div>
 
-  <label for="fname">First name:</label><br>
-  <input type="text" formControlName="fname">
-  <br>
-  <label for="lname">Last name:</label><br>
-  <input type="text" formControlName="lname">
-  <br>
-  <label for="email">Email:</label><br>
-  <input type="text" formControlName="email">
-  <br>
-  <label for="password">Password:</label><br>
-  <input type="password" formControlName="password">
-  <br>
-  <br>
-  <input type="submit" value="Submit" routerLink="/"/>
+    <div class="form-group">
+      <label for="username">First Name:</label>
+      <input type="text" formControlName="firstName" placeholder="First Name"
+        name="firstName" class="form-control" id="firstName">
+    </div>
 
-</form>
+    <div class="form-group">
+      <label for="username">Last Name:</label>
+      <input type="text" formControlName="lastName" placeholder="Last Name"
+        name="lastName" class="form-control" id="lastName">
+    </div>
+
+
+    <button class="btn bth-success">Sign up</button>
+  </form>
+</div>

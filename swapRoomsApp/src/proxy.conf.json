@@ -1,0 +1,7 @@
+{
+    "/api/*": {
+        "target": "http://localhost/Test_Login_SwapRms",
+        "secure": false,
+        "logLevel": "debug"
+    }
+}

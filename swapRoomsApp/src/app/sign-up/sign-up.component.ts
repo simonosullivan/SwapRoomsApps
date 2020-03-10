@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { UserCredentialsService } from '../services/user-credentials.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -8,25 +10,27 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 })
 export class SignUpComponent implements OnInit {
 
-  signUpForm : FormGroup;
+  addForm : FormGroup;
 
-  constructor(private fb : FormBuilder) { 
+  constructor(private fb : FormBuilder, private apiService: UserCredentialsService, private router: Router) { 
     
   }
 
   ngOnInit() {
-    this.signUpForm = this.fb.group({
-      fname: '',
-      lname: '',
-      email: '',
-      password: ''
+    this.addForm = this.fb.group({
+     username: ['', Validators.required],
+     password: ['', Validators.required],
+     firstName: ['', Validators.required],
+     lastName: ['', Validators.required]
     })
 
-    this.signUpForm.valueChanges.subscribe()
   }
 
   onSubmit(){
-    
+    this.apiService.createUser(this.addForm.value)
+    .subscribe(data=>{
+      this.router.navigate(['/']);
+    })
   }
 
 }
