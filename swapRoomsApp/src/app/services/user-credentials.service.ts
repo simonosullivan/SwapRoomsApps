@@ -15,12 +15,12 @@ export class UserCredentialsService {
 
   constructor(private http: HttpClient) { }
 
-  postData(user: FormGroup):Observable<any>{
-    return this.http.post<any>(this.url+'UserCredentials.php', user.value);
+  login(loginData): Observable<ApiResponseComponent>{
+    return this.http.post<ApiResponseComponent>(this.url+'login.php', loginData);
   }
 
   createUser(user: UserComponent): Observable<ApiResponseComponent>{
-    return this.http.post<ApiResponseComponent>(this.url+'UserCredentials.php', user);
+    return this.http.post<ApiResponseComponent>(this.url+'register.php', user);
   }
 
 

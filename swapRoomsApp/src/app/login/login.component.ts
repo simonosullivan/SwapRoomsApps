@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {UserCredentialsService} from '../services/user-credentials.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,22 +11,39 @@ import {UserCredentialsService} from '../services/user-credentials.service';
 export class LoginComponent implements OnInit {
 
   loginForm : FormGroup;
+  invalidLogin: boolean = false;
+  message: any;
+  
 
-  constructor(private fb : FormBuilder, private user: UserCredentialsService) { }
+  constructor(private fb : FormBuilder, private router: Router , private apiService: UserCredentialsService) { }
 
   ngOnInit() {
-    this.loginForm = this.fb.group({
-      email: '',
-      password: ''
-    })
+   this.loginForm = this.fb.group({
+     username: ['', Validators.compose([Validators.required])],
+     password: ['', Validators.required]
+   });
 
   }
 
   onSubmit(){
-    this.user.postData(this.loginForm.value).subscribe(
-      data => console.log("Success", data),
-      error => console.log("Error", error)
-    )
+   if(this.loginForm.invalid){
+     return;
+   }
+
+   const loginData = {
+    username : this.loginForm.controls.username.value,
+    password : this.loginForm.controls.password.value
+   };
+
+   this.apiService.login(loginData).subscribe((data:any)=> {
+    this.message = data.message;
+    if(data.token){
+      window.localStorage.setItem('token', data.token);
+    }else{
+      this.invalidLogin = true;
+    }
+   });
+
   }
 
 }

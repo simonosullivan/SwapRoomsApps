@@ -11,12 +11,17 @@ import {Router} from '@angular/router';
 export class SignUpComponent implements OnInit {
 
   addForm : FormGroup;
-
+  token : any;
   constructor(private fb : FormBuilder, private apiService: UserCredentialsService, private router: Router) { 
     
   }
 
   ngOnInit() {
+    this.token = window.localStorage.getItem('token');
+
+    if(!this.token){
+      this.router.navigate(['Login']);
+    }    
     this.addForm = this.fb.group({
      username: ['', Validators.required],
      password: ['', Validators.required],
@@ -31,6 +36,12 @@ export class SignUpComponent implements OnInit {
     .subscribe(data=>{
       this.router.navigate(['/']);
     })
+  }
+
+  // To logout 
+  logout(){
+    window.localStorage.removeItem('token');
+    this.router.navigate(['Login']);
   }
 
 }
