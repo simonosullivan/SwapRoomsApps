@@ -1,10 +1,15 @@
 <h1>Sign Up for Swap Rooms</h1>
 <div class="col-md-6 user-container">
-  <div *ngIf="token"><button (click)="logout()">Logout</button></div>
+
+  <!-- To logout -->
+  <div *ngIf="token"><button (click)="logout()">Logout</button></div> 
+
   <h2 class="text-center">Add User</h2>
 
+  <!-- Add to Form Group   -->
   <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
 
+    <!-- Attribute name in Form Group : formControlName -->
     <div class="form-group">
       <label for="username">User Name:</label>
       <input type="text" formControlName="username" placeholder="username"

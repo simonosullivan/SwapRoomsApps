@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {UserCredentialsService} from '../services/user-credentials.service';
+import { UserCredentialsService } from "../services/UserCredentialsService";
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,10 +14,11 @@ export class LoginComponent implements OnInit {
   invalidLogin: boolean = false;
   message: any;
   
-
+  // inject into contrustor so they can be utilised 
   constructor(private fb : FormBuilder, private router: Router , private apiService: UserCredentialsService) { }
 
   ngOnInit() {
+    // When page loads, empty the fields username & password
    this.loginForm = this.fb.group({
      username: ['', Validators.compose([Validators.required])],
      password: ['', Validators.required]
@@ -31,12 +32,16 @@ export class LoginComponent implements OnInit {
    }
 
    const loginData = {
+     // Get the values from the login form using a form-group
     username : this.loginForm.controls.username.value,
     password : this.loginForm.controls.password.value
    };
 
-   this.apiService.login(loginData).subscribe((data:any)=> {
-    this.message = data.message;
+   this.apiService.login(loginData).subscribe((data:any)=> { 
+    // send loginData and subscribe to get the confirmation of a successful sign in
+
+    this.message = data.message; 
+    //gets token and stores in local Storage                          
     if(data.token){
       window.localStorage.setItem('token', data.token);
     }else{

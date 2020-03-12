@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import { UserCredentialsService } from '../services/user-credentials.service';
+import { UserCredentialsService } from '../services/UserCredentialsService';
 import {Router} from '@angular/router';
 
 @Component({
@@ -12,16 +12,18 @@ export class SignUpComponent implements OnInit {
 
   addForm : FormGroup;
   token : any;
-  constructor(private fb : FormBuilder, private apiService: UserCredentialsService, private router: Router) { 
-    
-  }
+
+  constructor(private fb : FormBuilder, private apiService: UserCredentialsService, private router: Router) { }
 
   ngOnInit() {
+    // if signed in, there will be a token
     this.token = window.localStorage.getItem('token');
 
+    // if not signed in, redirected to login page
     if(!this.token){
       this.router.navigate(['Login']);
-    }    
+    } 
+
     this.addForm = this.fb.group({
      username: ['', Validators.required],
      password: ['', Validators.required],
@@ -32,8 +34,10 @@ export class SignUpComponent implements OnInit {
   }
 
   onSubmit(){
+    // Sending to values of the form to create a new user
     this.apiService.createUser(this.addForm.value)
     .subscribe(data=>{
+      // once added, user gets redirect to home page
       this.router.navigate(['/']);
     })
   }

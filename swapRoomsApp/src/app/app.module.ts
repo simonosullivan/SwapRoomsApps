@@ -13,7 +13,6 @@ import { UserComponent } from './Model/user/user.component';
 import { ApiResponseComponent } from './Model/api-response/api-response.component';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,

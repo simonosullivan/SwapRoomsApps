@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { UserCredentialsService } from './user-credentials.service';
+import { UserCredentialsService } from "./UserCredentialsService";
 
 describe('UserCredentialsService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
