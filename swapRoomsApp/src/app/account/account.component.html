@@ -1,0 +1,328 @@
+<head>
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+</head>
+
+<div class="background">
+  <div class="container">
+    <h1>Account</h1>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div>
+          <img class="profPic" src="https://i.pinimg.com/236x/d9/46/3d/d9463d6fafa219262ea5eea3bfac7c41.jpg" width="300" height="300" class="img-circle">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <img class="edit pointerCursor" (click)="edit()" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAYFBMVEVNtqz///9HtKo+sqfr9vX4/PxBs6hItapkvrVau7Hv+Pc4sKVevLNPt63W7OpmvrZ1xLzR6ue64NzD5ODj8vF8x7+t2tWEysOu29Z7x7+Rz8hvwrqh1dC439uk1tHR6ug0XSRhAAAK/klEQVR4nO2d24KjKBCGI0RMQsyhczAx3en3f8vVGAURFBAostP/3e7MRD8LqoritEj+71pAv4B3/RF+vv4IP19/hG6VNgr6zACEm/Px51ke9tt1jkgtlK+3+0P5/DmeN/4f75Vwc7wWW0wxJghlCC2YXv9NcPVn2+J69MrpjXB3u+cYox6XTNXfwDi/33a+XsQL4e56qOEm2PqcGB+uXiidE6anIsMoM6BrlSGcFSfX7+OYMD1dKuNZ0HW2xPhycutrXRL+FmQWXgtJiqPDt3JGuLnmDvBayPzqzL86ItwV1BXeG5IWjvyOE8LTyjFfw7hy0lgdEJ7WzpqnwIjXDlzrbMLT1hNfw7idzTiTcLfyyNcwrmb2x1mE54OH/jdgpIczEGFaBuBrGMsZSYA94RexSc3slJGv4ITLPQ7GVwvvl2EJbzicARtl+BaQcPMIa8BG+GGVydkQnjxHCJUQtgmOFoQlBeGrRcsAhOc1jAEbobVxbDQlhGqhHaJxSzUk/IZroa3ot0/CC4QPFYUv3gjTLWwLbYVWJkmcAeEyjwOwQswNEhx9wnMWC2CFmOm7VG3CX3gfwwtrjxp1CSMDrFzqr1vCY2yAFaJmnUqPMEJAbUQtwuiaaCM9RB3CXZyAFaKOu9EgPBNoEqWIRtCYJtwYTQSGFULTg+Jpwm3oeoWJsu18wkPMgBXiYS7hd7ydsBGZGkxNEJ5idaNMdGJIPE54jmE8OCU87lDHCUFrMrpCa3vC4hMAK8TRCtwY4Qd0wkajXXGEcPMJnbARHgn8I4SPz2ijtdDDhvD6OSasjHg1J1x+EmCFqKxNKQkfUNkaqtdkGmf7mbKdqgi/gExI1s/debm7rUyfj1WzxArCFCgdpV1/Oi4MzUgUZWIFYQnSRhHiBu3pwQwxU8R9OeEZJtYLQ3bDcEXl+amcEMbNDFJoMysqnI2U8AjiZiQ1XjMrYmntTUoIMqSQJpdGVpQPMmSEJwgT0p/28Wl5Z83VCFE6PywjzL1hjLzcs3v8niCuEGqEmOsRQpgQM1d/r5EsEWVGlBACmJAU3dOLJtfgZs9M3I3EiENCABMiVhIs26fbWVFixCHhKrgjRavu4U+WalhZkfspJSHANAzpRj4//MM5K+pnIMPJmgFh+OoT++5CYYizonaERoUIJBJuwpsQ7duHixOxzCD6hVsqlmxEwidAOsMmkEREZkXt6RP0FIhEQohoz7lSJeJJe8AqBgyBECbnRvfuBcQJ9bah6jdTMf8WCAP7mbYcQ5gVBcTs7YZSbf8g+po+YdjiBSL7B2kYCbNiv6Gi9zI9Aw8olDP6hPqt3YGyVRUH00vzSIUVs21q2krFvKZPeAnYSLN3kBgiMiuSbth+0//2qL86s0eYBvQzWRfnW8Shu8GsS5ks/MS9ZtojDNhIMy6BVDVUbt260XCA9JppjzCcJ816GfLQinVDpSx2L40+fd+b9giBAOV9kbIi9tKwOoxUhLtQ3VAElFqRNbUzMfz0vcWnPGGonHQIKLMiYzX+8L3clCcMNCWadWOJ5MxKpMXAim9ZzLX3Jkx5wjADJ86CS76oNmyoL11t3orKCcN0Q86CyyotlSD2GqrdFha+I3KE1xCNtGdB1H8ZiRULu6+OuElvjvAeYDpmALgYteLBMgXJuI/EEQYY/EoAR6yY7q1bFTcMZoRL/45GCiizIqq3i87ZB8gtXGCE/of3CkApItmuTeM8L26gzwi9OxoloKyhms7iC+JcDSP0nXYLYaKvoRXniUu+GeHawQ+PaMSCtbDlfJpKWwmhX0czasFazIobF4R0SOjXlU5Y8PVOnXNwsZGTlb47Qq85mwYgt2vSRX9hrb4j9FnB0AFcdB/dyeJyVsnoCD0GCy0LdoCpk5Ug6DYg/PaWlZpZ0NF26ux7QOgtHEJYkA+IHaGvAf5kmOhb0NViJbZbqCO0z+PHn8RZULEZ3H0TXfDTrh3h1tFP96VjwdwDIJfUdIReRoeGTsblerp8QOjut5lgnMxbImHqoRuChInul1OR0H1KA2pBNk/aETpPS0EtGIIQ1oLcJKKvVgoU6JmGNnRLCBXomYaETp8BF+jZ74uETuMhYKBnSkRChzkNtJN5aZjTuMtLgcPEW8O81NnYIgoLysYWrsaHcViQmwZ2PcaPw4LSMb6bOg14oO9eZFincVJrgw/03WOuA0IX9dIIAn0rSb3UQc07ikD/lqTmPX+RfixO5iXJvMXsuadIwsRbkrmnuUlNVBZcINn84byAGJcF5XPAs8JFXBZUzOPPWYsRTaBvJV2LMeOoj3gCfSsqW09jP0KMKNC3kq6Jsj57LqZA377SQUpouUQ4NifzeuBTSmjnaiILE4343V0cof7mKU4xWrByNKmU0GaPc5QW5EoYAqF5R4zTguq1+sYDqOgC/VvK/Rame2ZQdIG+fSoPNWffU97151gC/fup6n1PZpUM8jMJCNFER/eumU0idq09JifzejH1/kOzxK3NbiMKEy8JRwvP2AfcFgrW8s8CZUGhkc7Zy93m7/I/hbLgxF5uE2/azgxspF8FzIIT+/FNsu/2l6Sn1wF50VoTZyoYDIPbmYFfyUeBa6KT52IY5KZtOPwatlKYQP9+9tTZJvpL9luXNfwmgE1U43wa/WMV2oBfiv8AzsksBgcqyAi1z4lqt4ddhHAI2Qe1zonSntBvw44wGwBqwf7YV0WofUDD++/3HQ2sBfXOa9MMGO3X6ld3YC2oeeae5iHJXcCv/zZCGSIYk8UWFlB2XLL12ZdtwD9SStGqKK+n3ZJLCGHu2dM8+1LPiOS97Wa5k50VDgMoPfFafgatxq+RsfsIQJroYqF9Bq2WOx27vA4IUH5FqeIs6Ok3HGRHHCDMXZeKCxKsz/Om0n8ICGh2nrfGmezyVpqed9cFzJ0DZmeya5Qzem1icz5+XcvLFlEMdl+w4bn6yc+ks8kex7QCe5aHdVZH+zrqhyBRyPRuBJ2JKIRpAxYCYEqSlHuKEOjyAFsp3MwYYfKM/cY1XkSsXegQAhwKbS11Gx0lDHBgjSvRkTuex+7sgrprxlhKPzpFmBRRuMlJZYMTrrUJk2juGh8Tko0KdQn///cffsL1efPusKxS8Nij4tx7SP+Bu2T/gfuA/4E7nf//93L/A3erD28siERUekeXFWGcYXEqEBoRxoioCahLGB+iLqA2YWyI2oD6hMkuoqCBiI4XNSVMztGEfoQ04qAFYbJRrNELrWw9ncnYESbJI4aWSkauqJ5NmJTw/oaO3hU/mzA5gc1LNELySUKHhMk5h+yMWW7gYywJk+QCV7zBo1U1Z4TJDwWaIaRjdVGXhMnyAWFG/BipbDsmrG+dCG3GDN+mX8shYbLchzUj3lsZcAZhvTY4nBkzYtMD5xImaRmoqWa0VMzReyasYmMQj4MfxjHQGWGV4uS+GXGuVY3xRlh1R6+MOLfvgK4IqwRg4SlXRXgxm88JYdVWVx58TkZXpkm2VE4Ik+R4oG7tiOhBv1AxKkeEVQrwzJ01VoTzp22AH8gZYaXfgjjIAjJMipnusyeXhFUScLrjOVf8LBDB99OM8C6RW8JK6VeBsFVVDlX/rvhyi5d4IKy1+15RM8qKjq6+HfmWvrwQVkp3t3uOK8wpzupvYJzfb17oavkifGlzvJZbSquumYmLT1//h2BKt+X1aFL+NJZXwkbL3en6XRxW68peFVO9JHWxXh2K73oTiv/HByBkSluFfGhQQhD9EX6+/gg/X3+En6//AOebmPxTDeSwAAAAAElFTkSuQmCC" 
+          width="50" height="50">
+      </div>
+    </div>
+
+    <div class="panel panel-info" *ngFor="let u of user">
+      <div class="panel-heading">Personal</div>
+      <div class="panel-body">
+
+        <div class="row">
+          <div class="col-md-6" >
+            <label>First Name</label>
+          </div>
+          <div class="col-md-6" >
+            <p>{{u.fname}}</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <label>Last Name</label>
+          </div>
+          <div class="col-md-6" >
+            <p>{{u.lname}}</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <label>Email</label>
+          </div>
+          <div class="col-md-6" >
+            <p>{{u.email}}</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6" >
+            <label>Preferred Email</label>
+          </div>
+          <div class="col-md-6" >
+            <p>{{u.preferEmail}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-info"  >
+      <div class="panel-heading">Room Details</div>
+      <div class="panel-body">
+
+        <div class="row">
+          <div class="col-md-6">
+            <label>Room Title</label>
+          </div>
+          <div class="col-md-6" *ngFor="let u of user">
+            <p>{{u.titleRm}}</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6" >
+            <label>Description</label>
+          </div>
+          <div class="col-md-6" *ngFor="let u of user">
+            <p>{{u.descripRm}}</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <label>Address</label>
+          </div>
+          <div class="col-md-6" *ngFor="let u of user">
+            <p>{{u.addrRm}}</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <label>County</label>
+          </div>
+          <div class="col-md-6" >
+            <p>{{county}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel panel-info"   *ngFor="let a of amenities">
+      <div class="panel-heading">Amenities</div>
+      <div class="panel-body" >
+
+        <div class="row">
+          
+          <div class="col-md-12" [hidden]="a.wifi == '0'">
+            <p>Wifi</p>
+          </div>
+        </div>
+
+        <div class="row">
+          
+          <div class="col-md-12" [hidden]="a.cableTV == '0'">
+            <p>Cable TV</p>
+          </div>
+        </div>
+
+        <div class="row">
+          
+          <div class="col-md-12" [hidden]="a.iron == '0'">
+            <p>Iron</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12" [hidden]="a.tv == '0'">
+            <p>TV</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12" [hidden]="a.essentials == '0'">
+            <p>Essentials</p>
+          </div>
+        </div>
+
+        
+
+        <div class="row">
+          <div class="col-md-12" *ngFor="let u of user">
+            <button type="button" class="btn btn-info pointerCursor" (click)="isHidden = !isHidden">See all Amenities</button> 
+            <div [hidden]="isHidden">
+              
+              <div class="row">
+                
+                <div class="col-md-12" [hidden]="a.washingMachine == '0'">
+                  <p>Washing Machine</p>
+                </div>
+              </div>
+      
+              <div class="row">
+                <div class="col-md-12" [hidden]="a.heating == '0'">
+                  <p>Heating</p>
+                </div>
+              </div>
+      
+              <div class="row">
+                <div class="col-md-12" [hidden]="a.laptopWorkspace == '0'">
+                  <p>Laptop Friendly Workspace</p>
+                </div>
+              </div>
+              <div class="row">
+                
+                <div class="col-md-12" [hidden]="a.hotWater == '0'">
+                  <p>Hot Water</p>
+                </div>
+              </div>
+      
+              <div class="row">
+                <div class="col-md-12" [hidden]="a.freeParking == '0'">
+                  <p>Free Parking</p>
+                </div>
+              </div>
+      
+              <div class="row">
+                <div class="col-md-12" [hidden]="a.kitchen == '0'">
+                  <p>Kitchen</p>
+                </div>
+              </div>
+              <div class="row">
+                
+                <div class="col-md-12" [hidden]="a.stove == '0'">
+                  <p>Stove</p>
+                </div>
+              </div>
+      
+              <div class="row">
+                <div class="col-md-12" [hidden]="a.microwave == '0'">
+                  <p>Microwave</p>
+                </div>
+              </div>
+      
+              <div class="row">
+                <div class="col-md-12" [hidden]="a.cookingBasics == '0'">
+                  <p>Cooking Basics</p>
+                </div>
+              </div>
+              <div class="row">
+                
+                <div class="col-md-12" [hidden]="a.refridgerator == '0'">
+                  <p>Refridgerator</p>
+                </div>
+              </div>
+      
+              <div class="row">
+                <div class="col-md-12" [hidden]="a.dishesSilverware == '0'">
+                  <p>Dishes & Silverware</p>
+                </div>
+              </div>
+      
+              <div class="row">
+                <div class="col-md-12" [hidden]="a.smartLock == '0'">
+                  <p>Smart Lock</p>
+                </div>
+              </div>
+              <div class="row">
+                
+                <div class="col-md-12" [hidden]="a.shampoo == '0'">
+                  <p>Shampoo</p>
+                </div>
+              </div>
+      
+              <div class="row">
+                <div class="col-md-12" [hidden]="a.hairDryer == '0'">
+                  <p>Hair Dryer</p>
+                </div>
+              </div>
+      
+              <div class="row">
+                <div class="col-md-12" [hidden]="a.hangers == '0'">
+                  <p>Hangers</p>
+                </div>
+              </div>
+              <div class="row">
+                
+                <div class="col-md-12" [hidden]="a.entirePlace == '0'">
+                  <p>Entire Place</p>
+                </div>
+              </div>
+      
+              <div class="row">
+                <div class="col-md-12" [hidden]="a.privateRoom == '0'">
+                  <p>private Room</p>
+                </div>
+              </div>
+      
+              <div class="row">
+                <div class="col-md-12" [hidden]="a.sharedRoom == '0'">
+                  <p>Shared Room</p>
+                </div>
+              </div>
+      
+              <div class="row">
+                
+                
+                <div class="col-md-12" [hidden]="a.doubleBed == '0'">
+                  <p>Double Bed</p>
+                </div>
+              </div>
+      
+              <div class="row">
+                <div class="col-md-12" [hidden]="a.singleBed == '0'">
+                  <p>Single Bed</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> 
+      
+        
+        
+      </div>
+    </div>
+
+    <div class="panel panel-warning">
+      <div class="panel-heading">Change Password</div>
+      <div class="panel-body">
+
+        <form [formGroup]="changePass" (ngSubmit)="onSubmit()">
+        
+          <div class="row" style="height: 50px;">
+            <div class="col-md-6">
+              <label>New Password</label>
+            </div>
+            <div class="col-md-6">
+              <input type="password" formControlName="password" placeholder="password"
+                name="password" class="form-control" id="password">
+            </div>
+          </div>
+
+          <div class="row" style="height: 50px;">
+            <div class="col-md-6">
+              <label>Verify Password</label>
+            </div>
+            <div class="col-md-6">
+              <input type="password" formControlName="verify_password" placeholder="verify password"
+                name="verify_password" class="form-control" id="verify_password">
+            </div>
+          </div> 
+
+          <div class="row" style="height: 50px; ">
+            <div class="col-md-12">
+              <button type="submit" class="btn btn-success">Change</button>
+            </div>
+          </div> 
+
+          <div class="row">
+            <div class="col-md-12" *ngIf='message'>
+              <p>{{message}}</p>
+            </div>
+          </div> 
+          
+
+      </form>
+
+  </div>
+</div>
+

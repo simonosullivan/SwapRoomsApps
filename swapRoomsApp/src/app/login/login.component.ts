@@ -33,21 +33,25 @@ export class LoginComponent implements OnInit {
 
    const loginData = {
      // Get the values from the login form using a form-group
-    username : this.loginForm.controls.username.value,
+    email : this.loginForm.controls.username.value,
     password : this.loginForm.controls.password.value
    };
 
    this.apiService.login(loginData).subscribe((data:any)=> { 
     // send loginData and subscribe to get the confirmation of a successful sign in
-
     this.message = data.message; 
+    
     //gets token and stores in local Storage                          
     if(data.token){
       window.localStorage.setItem('token', data.token);
+      window.localStorage.setItem('email', data.email);
+      this.router.navigate(['Account']);
     }else{
       this.invalidLogin = true;
     }
    });
+
+  
 
   }
 

@@ -19,4 +19,24 @@ export class UserCredentialsService {
   createUser(user: UserComponent): Observable<ApiResponseComponent> {
     return this.http.post<ApiResponseComponent>(this.url + 'register.php', user);
   }
+
+  // Account get info
+  getAccInfo(email): Observable<ApiResponseComponent> {
+    return this.http.get<ApiResponseComponent>(this.url+ 'account.php?email='+email);
+  }
+
+  // Account get info
+  getAmenities(email): Observable<ApiResponseComponent> {
+    return this.http.get<ApiResponseComponent>(this.url+ 'getAmenities.php?email='+email);
+  }
+
+  // get county
+  getCounty(email): Observable<ApiResponseComponent> {
+    return this.http.get<ApiResponseComponent>(this.url+ 'getCounty.php?email='+email);
+  }
+
+  //Change Password
+  changePassword(userData) : Observable<ApiResponseComponent>{
+    return this.http.post<ApiResponseComponent>(this.url + 'changepassword.php', userData);
+  }
 }

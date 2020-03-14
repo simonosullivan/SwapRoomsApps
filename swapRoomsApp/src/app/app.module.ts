@@ -11,6 +11,8 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {FormsModule} from '@angular/forms';
 import { UserComponent } from './Model/user/user.component';
 import { ApiResponseComponent } from './Model/api-response/api-response.component';
+import { AccountComponent } from './account/account.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -21,14 +23,16 @@ import { ApiResponseComponent } from './Model/api-response/api-response.componen
     LoginComponent,
     SignUpComponent,
     UserComponent,
-    ApiResponseComponent
+    ApiResponseComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
