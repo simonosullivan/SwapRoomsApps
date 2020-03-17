@@ -1,0 +1,258 @@
+<head>
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+</head>
+
+<div class="background">
+  <div class="container">
+    <h1>Account</h1>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div>
+          <img class="profPic" src="https://i.pinimg.com/236x/d9/46/3d/d9463d6fafa219262ea5eea3bfac7c41.jpg" width="300" height="300" class="img-circle">
+        </div>
+      </div>
+    </div>
+
+    
+
+
+    <form [formGroup]="editAcc" (ngSubmit)="onSubmit()">
+
+      <div class="panel panel-info" *ngFor="let u of user">
+        <div class="panel-heading">Personal</div>
+        <div class="panel-body">
+
+          <div class="row" id="text-fields">
+            <div class="col-md-6" >
+              <label>First Name</label>
+            </div>
+            <div class="col-md-6" >
+              <input type="text" [(ngModel)]="u.fname"formControlName="fname" placeholder="First Name"
+                name="fname" class="form-control" id="fname">
+            </div>
+          </div>
+        
+
+          <div class="row" id="text-fields">
+            <div class="col-md-6">
+              <label>Last Name</label>
+            </div>
+            <div class="col-md-6" >
+              <input type="text" [(ngModel)]="u.lname" formControlName="lname" placeholder="Last Name"
+                name="lname" class="form-control" id="lname">
+            </div>
+          </div>
+
+          <div class="row" id="text-fields">
+            <div class="col-md-6">
+              <label>Email</label>
+            </div>
+            <div class="col-md-6" >
+              <input type="email" [(ngModel)]="u.email" formControlName="email" placeholder="Email"
+                name="email" class="form-control" id="email">
+            </div>
+          </div>
+
+          <div class="row" id="text-fields">
+            <div class="col-md-6" >
+              <label>Preferred Email</label>
+            </div>
+            <div class="col-md-6" >
+              <input type="email" [(ngModel)]="u.preferEmail" formControlName="preferEmail" placeholder="Preferred Email"
+                name="preferEmail" class="form-control" id="preferEmail">
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="panel panel-info"  >
+        <div class="panel-heading">Room Details</div>
+        <div class="panel-body">
+
+          <div class="row" id="text-fields">
+            <div class="col-md-6">
+              <label>Room Title</label>
+            </div>
+            <div class="col-md-6" *ngFor="let u of user">
+              <input type="text" [(ngModel)]="u.titleRm" formControlName="titleRm" placeholder="Room Title"
+                name="titleRm" class="form-control" id="titleRm">
+            </div>
+          </div>
+
+          <div class="row" id="text-fields">
+            <div class="col-md-6" >
+              <label>Description</label>
+            </div>
+            <div class="col-md-6" *ngFor="let u of user">
+              <input type="text" [(ngModel)]="u.descripRm" formControlName="descripRm" placeholder="Description"
+                name="descripRm" class="form-control" id="descripRm">
+            </div>
+          </div>
+
+          <div class="row" id="text-fields">
+            <div class="col-md-6" >
+              <label>Address</label>
+            </div>
+            <div class="col-md-6" *ngFor="let u of user">
+              <input type="text" [(ngModel)]="u.addrRm" formControlName="addrRm" placeholder="Address"
+                name="addrRm" class="form-control" id="addrRm">
+            </div>
+          </div>
+
+          <div class="row" id="text-fields">
+            <div class="col-md-6">
+              <label>County</label>
+            </div>
+            <div class="col-md-6">
+              <input type="text" [(ngModel)]="county" formControlName="county" placeholder="County"
+                name="county" class="form-control" id="county">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-info" >
+        <div class="panel-heading">Amenities</div>
+        <div class="panel-body">
+          <div class="col-md-12">
+      
+            <div class="funkyradio" *ngFor="let a of amenities">
+              <div class="funkyradio-success"  >
+                  <input type="checkbox" [(ngModel)]="a.wifi" formControlName="wifiCheck" id="wifiCheck" class="form-control" [checked]="a.wifi == '1'"/>
+                  <label for="wifiCheck">Wifi</label>
+              </div>
+              <div class="funkyradio-success">
+                  <input type="checkbox" [(ngModel)]="a.cableTV" formControlName="cabletvCheck" id="cabletvCheck" class="form-control" [checked]="a.cableTV == '1'"/>
+                  <label for="cabletvCheck">Cable TV</label>
+              </div>
+              <div class="funkyradio-success">
+                  <input type="checkbox" [(ngModel)]="a.iron"  formControlName="ironCheck" id="ironCheck" class="form-control" [checked]="a.iron == '1'"/>
+                  <label for="ironCheck">Iron</label>
+              </div>
+              <div class="funkyradio-success">
+                  <input type="checkbox" [(ngModel)]="a.tv" formControlName="tvCheck" id="tvCheck" class="form-control" [checked]="a.tv == '1'"/>
+                  <label for="tvCheck">TV</label>
+              </div>
+              <div class="funkyradio-success">
+                  <input type="checkbox" [(ngModel)]="a.essentials" formControlName="essentialsCheck" id="essentialsCheck" class="form-control" [checked]="a.essentials == '1'"/>
+                  <label for="essentialsCheck">Essentials</label>
+              </div>
+              <div class="funkyradio-success">
+                  <input type="checkbox" [(ngModel)]="a.washingMachine" formControlName="washMachineCheck" id="washMachineCheck" class="form-control" [checked]="a.washingMachine == '1'"/>
+                  <label for="washMachineCheck">Washing Machine</label>
+              </div>
+              <div class="funkyradio-success">
+                <input type="checkbox" [(ngModel)]="a.heating" formControlName="heatCheck" id="heatCheck" class="form-control" [checked]="a.heating == '1'"/>
+                <label for="heatCheck">Heating</label>
+              </div>
+              <div class="funkyradio-success">
+                  <input type="checkbox" [(ngModel)]="a.laptopWorkspace" formControlName="laptopCheck" id="laptopCheck" class="form-control" [checked]="a.laptopWorkspace == '1'"/>
+                  <label for="laptopCheck">Laptop Friendly Workspace</label>
+              </div>
+              <div class="funkyradio-success">
+                <input type="checkbox" [(ngModel)]="a.hotWater" formControlName="hotwaterCheck" id="hotwaterCheck" class="form-control" [checked]="a.hotWater == '1'"/>
+                <label for="hotwaterCheck">Hot Water</label>
+              </div>
+              <div class="funkyradio-success">
+                <input type="checkbox" [(ngModel)]="a.freeParking" formControlName="freeparkCheck" id="freeparkCheck" class="form-control" [checked]="a.freeParking == '1'"/>
+                <label for="freeparkCheck">Free Parking</label>
+              </div>
+              <div class="funkyradio-success">
+                  <input type="checkbox" [(ngModel)]="a.kitchen" formControlName="kitchenCheck" id="kitchenCheck" class="form-control" [checked]="a.kitchen == '1'"/>
+                  <label for="kitchenCheck">Kitchen</label>
+              </div>
+              <div class="funkyradio-success">
+                <input type="checkbox" [(ngModel)]="a.stove" formControlName="stoveCheck" id="stoveCheck" class="form-control" [checked]="a.stove == '1'"/>
+                <label for="stoveCheck">Stove</label>
+              </div>
+              <div class="funkyradio-success">
+                <input type="checkbox" [(ngModel)]="a.microwave" formControlName="microwaveCheck" id="microwaveCheck" class="form-control" [checked]="a.microwave == '1'"/>
+                <label for="microwaveCheck">Microwave</label>
+              </div>
+              <div class="funkyradio-success">
+                  <input type="checkbox" [(ngModel)]="a.cookingBasics" formControlName="cookingCheck" id="cookingCheck" class="form-control" [checked]="a.cookingBasics == '1'"/>
+                  <label for="cookingCheck">Cooking Basics</label>
+              </div>
+              <div class="funkyradio-success">
+                <input type="checkbox" [(ngModel)]="a.refridgerator" formControlName="fridgeCheck" id="fridgeCheck" class="form-control" [checked]="a.refridgerator == '1'"/>
+                <label for="fridgeCheck">Refridgerator</label>
+              </div>
+              <div class="funkyradio-success">
+                <input type="checkbox" [(ngModel)]="a.dishesSilverware" formControlName="dishesCheck" id="dishesCheck" class="form-control" [checked]="a.dishesSilverware == '1'"/>
+                <label for="dishesCheck">Dishes & Silverware</label>
+              </div>
+              <div class="funkyradio-success">
+                  <input type="checkbox" [(ngModel)]="a.smartLock" formControlName="lockCheck" id="lockCheck" class="form-control" [checked]="a.smartLock == '1'"/>
+                  <label for="lockCheck">Smart Lock</label>
+              </div>
+              <div class="funkyradio-success">
+                <input type="checkbox" [(ngModel)]="a.shampoo" formControlName="shampooCheck" id="shampooCheck" class="form-control" [checked]="a.shampoo == '1'"/>
+                <label for="shampooCheck">Shampoo</label>
+              </div>
+              <div class="funkyradio-success">
+                <input type="checkbox" [(ngModel)]="a.hairDryer" formControlName="hairdryerCheck" id="hairdryerCheck" class="form-control" [checked]="a.hairDryer == '1'"/>
+                <label for="hairdryerCheck">Hair Dryer</label>
+              </div>
+              <div class="funkyradio-success">
+                <input type="checkbox" [(ngModel)]="a.hangers" formControlName="hangersCheck" id="hangersCheck" class="form-control" [checked]="a.hangers== '1'"/>
+                <label for="hangersCheck">Hangers</label>
+              </div>
+              <div class="funkyradio-success">
+                <input type="checkbox" [(ngModel)]="a.entirePlace" formControlName="entireplaceCheck" id="entireplaceCheck" class="form-control" [checked]="a.entirePlace == '1'"/>
+                <label for="checkbox5">Entire Place</label>
+              </div>
+              <div class="funkyradio-success">
+                <input type="checkbox" [(ngModel)]="a.privateRoom" formControlName="privateroomCheck" id="privateroomCheck" class="form-control" [checked]="a.privateRoom == '1'"/>
+                <label for="privateroomCheck">Private Room</label>
+              </div>
+              <div class="funkyradio-success">
+                <input type="checkbox" [(ngModel)]="a.sharedRoom" formControlName="sharedroomCheck" id="sharedroomCheck" class="form-control" [checked]="a.sharedRoom == '1'"/>
+                <label for="sharedroomCheck">Shared Room</label>
+              </div>
+              <div class="funkyradio-success">
+                <input type="checkbox" [(ngModel)]="a.doubleBed" formControlName="doublebedCheck" id="doublebedCheck" class="form-control" [checked]="a.doubleBed == '1'"/>
+                <label for="doublebedCheck">Double Bed</label>
+              </div>
+              <div class="funkyradio-success">
+                <input type="checkbox" [(ngModel)]="a.singleBed" formControlName="singlebedCheck" id="singlebedCheck" class="form-control" [checked]="a.singleBed == '1'"/>
+                <label for="singlebedCheck">Single Bed</label>
+              </div>
+
+            </div>
+            
+
+          </div>
+          
+
+        </div>
+      </div>
+
+    
+
+       
+      <div class="panel panel-warning">
+        <div class="panel-heading">Submit Changes</div>
+        <div class="panel-body">
+
+          <p>Thank you for keeping your account updated!</p>
+
+          <!-- Submit form changes to account  -->
+          <div class="row" style="height: 50px; ">
+            <div class="col-md-12">
+              <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+          </div> 
+          
+        </div>
+      </div>
+
+  </form>
+
+
+  </div>
+</div>
+

@@ -39,4 +39,9 @@ export class UserCredentialsService {
   changePassword(userData) : Observable<ApiResponseComponent>{
     return this.http.post<ApiResponseComponent>(this.url + 'changepassword.php', userData);
   }
+
+  // Edit Account info
+  editAccInfo(userInfo): Observable<ApiResponseComponent>{
+    return this.http.post<ApiResponseComponent>(this.url + 'editAccount.php', userInfo);
+  }
 }

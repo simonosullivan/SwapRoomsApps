@@ -3,25 +3,22 @@ import { UserCredentialsService } from '../services/UserCredentialsService';
 import {Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
-
-
 @Component({
-  selector: 'app-account',
-  templateUrl: './account.component.html',
-  styleUrls: ['./account.component.css']
+  selector: 'app-edit-account',
+  templateUrl: './edit-account.component.html',
+  styleUrls: ['./edit-account.component.css']
 })
-export class AccountComponent implements OnInit {
-
-  changePass : FormGroup;
+export class EditAccountComponent implements OnInit {
+  editAcc : FormGroup;
   message: any;
   user: any;
   amenities: any;
-  isHidden = true;
   email : any;
   password:any;
   verify: any;
   token: any;
   county: any;
+  checked : any = false;
   constructor(private apiService: UserCredentialsService, private fb : FormBuilder, private router: Router) { }
 
   ngOnInit() {
@@ -46,8 +43,10 @@ export class AccountComponent implements OnInit {
     // gets info from amenities table in db
     this.apiService.getAmenities(this.email).subscribe((data:any)=>{
       // display info on screen when comes back
-      this.amenities = data;      
+      this.amenities = data;
     });
+
+    
 
     // gets info from county table in db 
     this.apiService.getCounty(this.email).subscribe((data:any)=>{
@@ -55,57 +54,63 @@ export class AccountComponent implements OnInit {
       this.county = data.county;
     });
 
-    // setting validators for password
-    this.changePass = this.fb.group({
-      password: ['', Validators.required],
-      verify_password: ['', Validators.required]
-     })
+     // setting validators for password
+    this.editAcc = this.fb.group({
+      fname : '',
+      lname : '',
+      email : '',
+      preferEmail: '',
+      titleRm : '',
+      descripRm : '',
+      addrRm : '',
+      county : '',
+      wifiCheck : '',
+      cabletvCheck : '',
+      ironCheck : '',
+      tvCheck : '',
+      essentialsCheck : '',
+      washMachineCheck : '',
+      heatCheck : '',
+      laptopCheck : '',
+      hotwaterCheck : '',
+      freeparkCheck : '',
+      kitchenCheck : '',
+      stoveCheck : '',
+      microwaveCheck : '',
+      cookingCheck : '',
+      fridgeCheck : '',
+      dishesCheck : '',
+      lockCheck : '',
+      shampooCheck : '',
+      hairdryerCheck : '',
+      hangersCheck : '',
+      entireplaceCheck : '',
+      privateroomCheck : '',
+      sharedroomCheck : '',
+      doublebedCheck : '',
+      singlebedCheck : ''
+
+     });
 
 
   }
 
   onSubmit(){
     // get password values from form
-    this.password = this.changePass.controls.password.value
-    this.verify = this.changePass.controls.verify_password.value
-
-    // compare password and verify_password
-    if(this.password == this.verify){
-      const userData = {
-        email : this.email,
-        password : this.password
-      }
-
-      this.apiService.changePassword(userData).subscribe((data:any)=>{
-        // 
-        this.message = data.message;
-        console.log(this.message);
-
-        this.changePass = this.fb.group({
-          password : ['', Validators.required],
-          verify_password : ['', Validators.required]
-        })
-
-
-
-      }); 
-
-      
-    }
-    else{
-      this.message = "Passwords do not match! Please try again"
-    }
+    //this.password = this.changePass.controls.password.value
+    
+    this.apiService.editAccInfo(this.editAcc.value)
+    .subscribe(data=>{
+      // once added, user gets redirect to home page
+      this.router.navigate(['Account']);
+    })
+  
   }
 
-  edit(){
-    this.router.navigate(['Sign-Up']);
-  }
+  
     
 
     
-
-
-
 
 
 }

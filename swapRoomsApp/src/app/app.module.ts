@@ -13,6 +13,7 @@ import { UserComponent } from './Model/user/user.component';
 import { ApiResponseComponent } from './Model/api-response/api-response.component';
 import { AccountComponent } from './account/account.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { EditAccountComponent } from './edit-account/edit-account.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     SignUpComponent,
     UserComponent,
     ApiResponseComponent,
-    AccountComponent
+    AccountComponent,
+    EditAccountComponent
   ],
   imports: [
     BrowserModule,
