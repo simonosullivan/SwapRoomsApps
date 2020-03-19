@@ -1,40 +1,69 @@
-<h1>Sign Up for Swap Rooms</h1>
-<div class="col-md-6 user-container">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" 
+integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 
+<div class="body">
+  
   <!-- To logout -->
-  <div *ngIf="token"><button (click)="logout()">Logout</button></div> 
+  <!-- <div *ngIf="token"><button (click)="logout()">Logout</button></div>  -->
+ <!-- Add to Form Group   -->
+ <!-- <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
 
-  <h2 class="text-center">Add User</h2>
+  <div class="form-group">
+    <label for="username">Email:</label>
+    <input type="text" formControlName="email" placeholder="email"
+      name="email" class="form-control" id="email">
+  </div>
 
-  <!-- Add to Form Group   -->
-  <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="password">Password:</label>
+    <input type="password" formControlName="password" placeholder="password"
+      name="password" class="form-control" id="password">
+  </div>
 
-    <!-- Attribute name in Form Group : formControlName -->
-    <div class="form-group">
-      <label for="username">Email:</label>
-      <input type="text" formControlName="email" placeholder="email"
-        name="email" class="form-control" id="email">
+  <div class="form-group">
+    <label for="username">Confirm password:</label>
+    <input type="text" formControlName="cpassword" placeholder="Confirm"
+      name="firstName" class="form-control" id="firstName">
+  </div> 
+
+  
+
+
+  <button class="btn bth-success">Sign up</button>
+</form> -->
+
+
+
+  <div class="container">
+    <div class="card card-container">
+        <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+        <p id="profile-name" class="profile-name-card"></p>
+
+        <form class="form-signin" [formGroup]="addForm" (ngSubmit)="onSubmit()">
+
+            <span id="reauth-email" class="reauth-email"></span>
+            
+            <!-- <div class="error" *ngIf="loginForm.controls['username'].hasError('required') &&
+            loginForm.controls['username'].touched">Please enter a username</div> -->
+            <input type="email" id="inputEmail" class="form-control" formControlName="email" autocomplete="on" placeholder="Email address" required autofocus>
+            
+            <!-- <div class="error" *ngIf="loginForm.controls['password'].hasError('required') &&
+            loginForm.controls['password'].touched">Please enter password</div> -->
+            <input type="password" id="inputPassword" class="form-control" formControlName="password" placeholder="Password" required>
+            
+            <!-- <div class="error" *ngIf="loginForm.controls['password'].hasError('required') &&
+            loginForm.controls['password'].touched">Please confirm password</div> -->
+            <input type="password" id="inputPassword" class="form-control" formControlName="cpassword" placeholder="Confirm Password" required>
+            
+
+            <!-- <div *ngIf="invalidLogin" class="error">
+              <div class="danger">Passwords do not match! Please try again.</div>
+            </div> -->
+
+            
+            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" >Sign Up</button>
+        </form>
+        
     </div>
-
-    <div class="form-group">
-      <label for="password">Password:</label>
-      <input type="password" formControlName="password" placeholder="password"
-        name="password" class="form-control" id="password">
-    </div>
-
-    <div class="form-group">
-      <label for="username">First Name:</label>
-      <input type="text" formControlName="firstName" placeholder="First Name"
-        name="firstName" class="form-control" id="firstName">
-    </div>
-
-    <div class="form-group">
-      <label for="username">Last Name:</label>
-      <input type="text" formControlName="lastName" placeholder="Last Name"
-        name="lastName" class="form-control" id="lastName">
-    </div>
-
-
-    <button class="btn bth-success">Sign up</button>
-  </form>
+  </div>
 </div>

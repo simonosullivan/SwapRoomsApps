@@ -1,0 +1,5 @@
+Get Request Send in URL 	: https://stackoverflow.com/questions/42331451/cant-get-id-from-url-php-using-get-request-methods
+CRUD series 			: https://www.youtube.com/playlist?list=PLGt1lxwGVOI40me32bmhBS2kjkdTJ1-Mn
+Check boxes editAccount 	: https://bootsnipp.com/snippets/Zk2Pz
+use db to check box		: https://stackoverflow.com/questions/49030977/angular-5-html-boolean-on-checkbox-is-checked
+style of checkboxes     : https://bootsnipp.com/snippets/Zk2Pz

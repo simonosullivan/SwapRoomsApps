@@ -53,6 +53,8 @@ export class AccountComponent implements OnInit {
     this.apiService.getCounty(this.email).subscribe((data:any)=>{
       // display info on screen when comes back
       this.county = data.county;
+      console.log(this.county);
+
     });
 
     // setting validators for password
@@ -98,7 +100,7 @@ export class AccountComponent implements OnInit {
   }
 
   edit(){
-    this.router.navigate(['Sign-Up']);
+    this.router.navigate(['editAccount']);
   }
     
 

@@ -1,15 +1,17 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" 
 integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 
-<div class="row">
+<!-- <div class="row">
   <div class="col-md-6">
     <h2 style="margin: auto;">Please Login</h2>
     <h3 *ngIf='message'>
       {{message}}
     </h3>
     <div *ngIf="invalidLogin" class="error">
-      <div class="danger">invalid username or password. Please try again</div>
+      <div class="danger">Invalid username or password. Please try again</div>
     </div>
+
+
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
 
@@ -33,4 +35,41 @@ integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69p
 
     </form>
   </div>
+</div> -->
+
+<div class="body">
+  <div class="container">
+    <div class="card card-container">
+        <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+        <p id="profile-name" class="profile-name-card"></p>
+
+        <form class="form-signin" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+            <span id="reauth-email" class="reauth-email"></span>
+            
+            <div class="error" *ngIf="loginForm.controls['username'].hasError('required') &&
+            loginForm.controls['username'].touched">Please enter username</div>
+            <input type="email" id="inputEmail" class="form-control" formControlName="username" autocomplete="on" placeholder="Email address" required autofocus>
+            
+            <div class="error" *ngIf="loginForm.controls['password'].hasError('required') &&
+            loginForm.controls['password'].touched">Please enter password</div>
+            <input type="password" id="inputPassword" class="form-control" formControlName="password" placeholder="Password" required>
+            
+
+            <div *ngIf="invalidLogin" class="error">
+              <div class="danger">Invalid username or password. Please try again</div>
+            </div>
+
+            <div id="remember" class="checkbox">
+                <label>
+                    <input type="checkbox" value="remember-me"> Remember me
+                </label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" [disabled]="loginForm.invalid">Sign in</button>
+        </form><!-- /form -->
+        <a href="#" class="forgot-password">
+            Forgot the password?
+        </a>
+    </div><!-- /card-container -->
+  </div><!-- /container -->
 </div>

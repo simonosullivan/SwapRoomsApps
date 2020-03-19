@@ -19,6 +19,7 @@ export class EditAccountComponent implements OnInit {
   token: any;
   county: any;
   checked : any = false;
+  previousCounty : any;
   constructor(private apiService: UserCredentialsService, private fb : FormBuilder, private router: Router) { }
 
   ngOnInit() {
@@ -52,12 +53,14 @@ export class EditAccountComponent implements OnInit {
     this.apiService.getCounty(this.email).subscribe((data:any)=>{
       // display info on screen when comes back
       this.county = data.county;
+      console.log(data.county);
+      this.previousCounty = this.county;
     });
 
      // setting validators for password
     this.editAcc = this.fb.group({
       fname : '',
-      lname : '',
+      lname : ['', Validators.required],
       email : '',
       preferEmail: '',
       titleRm : '',
@@ -96,21 +99,16 @@ export class EditAccountComponent implements OnInit {
   }
 
   onSubmit(){
-    // get password values from form
-    //this.password = this.changePass.controls.password.value
+    const dataForm = {
+      formData : this.editAcc.value,
+      previousCounty : this.previousCounty
+    }
+
+    this.apiService.editAccInfo(dataForm).subscribe(data =>{});
+    this.router.navigate(['Account']);
     
-    this.apiService.editAccInfo(this.editAcc.value)
-    .subscribe(data=>{
-      // once added, user gets redirect to home page
-      this.router.navigate(['Account']);
-    })
-  
   }
 
-  
     
-
-    
-
 
 }
