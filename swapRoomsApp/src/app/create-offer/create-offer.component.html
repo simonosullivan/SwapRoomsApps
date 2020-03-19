@@ -1,0 +1,139 @@
+<head>
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+</head>
+
+<div class="background">
+  <div class="container">
+    <h1>Create Offer</h1>
+
+    
+
+    <form [formGroup]="createOffer" (ngSubmit)="onSubmit()">
+
+      <div class="panel panel-info"  >
+        <div class="panel-heading">Room Details</div>
+        <div class="panel-body">
+  
+          <div class="row">
+            <div class="col-md-6">
+              <label>Room Title</label>
+            </div>
+            <div class="col-md-6" *ngFor="let u of user">
+              <p>{{u.titleRm}}</p>
+            </div>
+          </div>
+  
+          <div class="row">
+            <div class="col-md-6" >
+              <label>Description</label>
+            </div>
+            <div class="col-md-6" *ngFor="let u of user">
+              <p>{{u.descripRm}}</p>
+            </div>
+          </div>
+  
+          <div class="row">
+            <div class="col-md-6">
+              <label>Address</label>
+            </div>
+            <div class="col-md-6" *ngFor="let u of user">
+              <p>{{u.addrRm}}</p>
+            </div>
+          </div>
+  
+          <div class="row">
+            <div class="col-md-6">
+              <label>County</label>
+            </div>
+            <div class="col-md-6" >
+              <p>{{county}}</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="panel panel-info"  >
+        <div class="panel-heading">Enter Information here</div>
+        <div class="panel-body">
+  
+          <div class="row" id="text-fields">
+            <div class="col-md-6">
+              <label>Preferred Places</label>
+            </div>
+            <div class="col-md-6">
+              <input type="text"  formControlName="option1" placeholder="Option #1"
+                name="option1" class="form-control" id="option1">
+            </div>
+          </div>
+
+          <div class="row" id="text-fields">
+            <div class="col-md-6"></div>
+            <div class="col-md-6">
+              <input type="text"  formControlName="option2" placeholder="Option #2"
+                name="option2" class="form-control" id="option2">
+            </div>
+          </div>
+
+          <div class="row" id="text-fields">
+            <div class="col-md-6"></div>
+            <div class="col-md-6">
+              <input type="text"  formControlName="option3" placeholder="Option #3"
+                name="option3" class="form-control" id="option3">
+            </div>
+          </div>
+  
+          <div class="row">
+            <div class="col-md-6" >
+              <label>Availability</label>
+            </div>
+            
+          </div>
+
+          <div class="row" id="text-fields">
+            <div class="col-md-6" >
+              <p>Start Date</p>
+            </div>
+            <div class="col-md-6">
+              <input type="date"  formControlName="start" placeholder="Start date"
+                name="start" class="form-control" id="start">
+            </div>
+          </div>
+
+          <div class="row" id="text-fields">
+            <div class="col-md-6">
+              <p>End Date</p>
+            </div>
+            <div class="col-md-6">
+              <input type="date"  formControlName="end" placeholder="End date"
+                name="end" class="form-control" id="end">
+            </div>
+          </div>
+  
+          
+        </div>
+      </div>
+
+      
+       
+      <div class="panel panel-warning">
+        <div class="panel-heading">Submit Changes</div>
+        <div class="panel-body">
+
+          <p>Thank you for keeping your account updated!</p>
+
+          <!-- Submit form changes to account  -->
+          <div class="row" style="height: 50px; ">
+            <div class="col-md-12">
+              <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+          </div> 
+          
+        </div>
+      </div>
+
+  </form>
+  </div>
+</div>

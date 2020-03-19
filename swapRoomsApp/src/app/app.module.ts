@@ -14,6 +14,7 @@ import { ApiResponseComponent } from './Model/api-response/api-response.componen
 import { AccountComponent } from './account/account.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { EditAccountComponent } from './edit-account/edit-account.component';
+import { CreateOfferComponent } from './create-offer/create-offer.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { EditAccountComponent } from './edit-account/edit-account.component';
     UserComponent,
     ApiResponseComponent,
     AccountComponent,
-    EditAccountComponent
+    EditAccountComponent,
+    CreateOfferComponent
   ],
   imports: [
     BrowserModule,
