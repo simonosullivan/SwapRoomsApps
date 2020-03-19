@@ -1,0 +1,46 @@
+.background{
+    background-color: aqua;
+    background-image: url(https://i.pinimg.com/originals/05/45/61/054561a91f8c20ee6637be0440e4e119.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding: 50px;
+}
+
+.container{
+    font-size: large;
+    text-align: center;
+    width: 60%;
+    background-color: white;
+    padding: 50px;
+    border-radius: 1%;
+    display: block;
+}
+
+.profPic{
+    
+  border-image: round;
+  border: black;
+  
+  
+}
+
+.panel{
+    width: 95%;
+    margin: auto;
+    padding: 10px;
+}
+
+.pointerCursor{
+    cursor: pointer;
+}
+
+
+
+#text-fields{
+    height: 50px;
+}
+
+.styleCard{
+    width: 75%;
+}

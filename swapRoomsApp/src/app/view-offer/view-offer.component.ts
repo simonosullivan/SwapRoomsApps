@@ -3,25 +3,29 @@ import { UserCredentialsService } from '../services/UserCredentialsService';
 import {Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
-
 @Component({
-  selector: 'app-create-offer',
-  templateUrl: './create-offer.component.html',
-  styleUrls: ['./create-offer.component.css']
+  selector: 'app-view-offer',
+  templateUrl: './view-offer.component.html',
+  styleUrls: ['./view-offer.component.css']
 })
-export class CreateOfferComponent implements OnInit {
+export class ViewOfferComponent implements OnInit {
 
-  createOffer : FormGroup;
+  changePass : FormGroup;
   message: any;
+  user: any;
+  amenities: any;
+  isHidden = true;
   email : any;
+  password:any;
+  verify: any;
   token: any;
   county: any;
-  user: any;
-
+  offer: any;
 
   constructor(private apiService: UserCredentialsService, private fb : FormBuilder, private router: Router) { }
 
   ngOnInit() {
+    
     // if signed in, there will be a token
     this.token = window.localStorage.getItem('token');
 
@@ -32,8 +36,6 @@ export class CreateOfferComponent implements OnInit {
 
     // Get signed in email for all services
     this.email = window.localStorage.getItem('email');
-
-    
 
     // Gets info from account table in db
     this.apiService.getAccInfo(this.email).subscribe((data:any)=>{
@@ -46,33 +48,13 @@ export class CreateOfferComponent implements OnInit {
       // display info on screen when comes back
       this.county = data.county;
       console.log(this.county);
+
     });
 
-    // Creating the form group
-    this.createOffer = this.fb.group({
-      option1: '',
-      option2: '',
-      option3: '',
-      start: '',
-      end: ''
-     })
-
-  }
-
-  onSubmit(){
-      const offerData = {
-        email : this.email,
-        option1: this.createOffer.controls.option1.value,
-        option2: this.createOffer.controls.option2.value,
-        option3: this.createOffer.controls.option3.value,
-        start: this.createOffer.controls.start.value,
-        end: this.createOffer.controls.end.value
-      }
-
-      this.apiService.createOffer(offerData).subscribe((data:any)=>{
-        this.message = data.message;
-        this.router.navigate(['viewOffer']);
-      });
+    this.apiService.getOfferDetails(this.email).subscribe((data:any)=>{
+      this.offer = data;
+      console.log(this.offer);
+    });
   }
 
 }

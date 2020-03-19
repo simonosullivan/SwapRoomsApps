@@ -15,6 +15,7 @@ import { AccountComponent } from './account/account.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { EditAccountComponent } from './edit-account/edit-account.component';
 import { CreateOfferComponent } from './create-offer/create-offer.component';
+import { ViewOfferComponent } from './view-offer/view-offer.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { CreateOfferComponent } from './create-offer/create-offer.component';
     ApiResponseComponent,
     AccountComponent,
     EditAccountComponent,
-    CreateOfferComponent
+    CreateOfferComponent,
+    ViewOfferComponent
   ],
   imports: [
     BrowserModule,

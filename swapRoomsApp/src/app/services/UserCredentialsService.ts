@@ -49,4 +49,9 @@ export class UserCredentialsService {
   createOffer(offerData) : Observable<ApiResponseComponent>{
     return this.http.post<ApiResponseComponent>(this.url + 'createOffer.php', offerData);
   }
+
+  // get county
+  getOfferDetails(email): Observable<ApiResponseComponent> {
+    return this.http.get<ApiResponseComponent>(this.url+ 'getOfferDetails.php?email='+email);
+  }
 }

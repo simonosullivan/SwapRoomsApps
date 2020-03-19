@@ -6,6 +6,7 @@ import {SignUpComponent} from './sign-up/sign-up.component'
 import {AccountComponent} from './account/account.component'
 import {EditAccountComponent} from './edit-account/edit-account.component';
 import {CreateOfferComponent} from './create-offer/create-offer.component';
+import {ViewOfferComponent} from './view-offer/view-offer.component';
 
 const routes: Routes = [
   { path: '', component: OpeningPageComponent },  // sign up will be home page
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path : 'Sign-Up', component: SignUpComponent},
   {path: 'Account', component : AccountComponent},
   {path: 'editAccount', component: EditAccountComponent},
-  {path: 'createOffer', component: CreateOfferComponent}
+  {path: 'createOffer', component: CreateOfferComponent},
+  {path: 'viewOffer', component: ViewOfferComponent}
 ];
 
 @NgModule({
@@ -22,4 +24,4 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 export const routingComponents = [OpeningPageComponent, LoginComponent, SignUpComponent, 
-  AccountComponent, EditAccountComponent, CreateOfferComponent]
+  AccountComponent, EditAccountComponent, CreateOfferComponent, ViewOfferComponent]
