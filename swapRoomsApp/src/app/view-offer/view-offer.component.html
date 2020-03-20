@@ -4,27 +4,35 @@
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 
-  <!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script> -->
+
 </head>
+
+
+
+
 
 <div class="background">
   <div class="container">
-    <div class="card border-dark mb-3 styleCard">
+    
+    <div class="card border-dark mb-3 styleCard" *ngFor="let o of offers" >
+
+
+      
+
+
       <img src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg" class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title" *ngFor="let u of user">{{u.titleRm}}</h5>
+        <h5 class="card-title" >{{o.titleRm}}</h5>
         <!-- <p class="card-text">
           Some quick example text to build on the card title and make up the bulk of the card's content.
         </p> -->
 
-        <div class="row" *ngFor="let u of user">
+        <div class="row" >
           <div class="col-md-6">
             <p>Room Description</p>
           </div>
           <div class="col-md-6">
-            <p>{{u.descripRm}}</p>
+            <p>{{o.descripRm}}</p>
           </div>
         </div>
 
@@ -37,48 +45,48 @@
           </div>
         </div>
 
-        <div class="row" *ngFor="let o of offer">
+        <div class="row" >
           <div class="col-md-6">
             <p>Preferred Places to swap with</p>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-6" >
             <p>{{o.option1}}</p>
           </div>
         </div>
 
-        <div class="row" *ngFor="let o of offer">
+        <div class="row" >
           <div class="col-md-6"></div>
-          <div class="col-md-6">
+          <div class="col-md-6" >
             <p>{{o.option2}}</p>
           </div>
         </div>
-        <div class="row" *ngFor="let o of offer">
+        <div class="row" >
           <div class="col-md-6"></div>
-          <div class="col-md-6">
+          <div class="col-md-6" >
             <p>{{o.option3}}</p>
           </div>
         </div>
 
-        <div class="row" *ngFor="let o of offer">
+        <div class="row" >
           <div class="col-md-6">
             <p>Availability</p>
           </div>
         </div>
 
-        <div class="row" *ngFor="let o of offer">
+        <div class="row" >
           <div class="col-md-6" >
             <p>Start Date</p>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-6" >
             <p>{{o.start}}</p>
           </div>
         </div>
 
-        <div class="row" *ngFor="let o of offer" >
+        <div class="row"  >
           <div class="col-md-6">
             <p>End Date</p>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-6" >
             <p>{{o.end}}</p>
           </div>
         </div>

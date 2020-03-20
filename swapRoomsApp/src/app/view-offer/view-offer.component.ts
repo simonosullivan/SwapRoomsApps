@@ -20,7 +20,7 @@ export class ViewOfferComponent implements OnInit {
   verify: any;
   token: any;
   county: any;
-  offer: any;
+  offers: any;
 
   constructor(private apiService: UserCredentialsService, private fb : FormBuilder, private router: Router) { }
 
@@ -38,10 +38,11 @@ export class ViewOfferComponent implements OnInit {
     this.email = window.localStorage.getItem('email');
 
     // Gets info from account table in db
-    this.apiService.getAccInfo(this.email).subscribe((data:any)=>{
-      // display info on screen when comes back
-      this.user = data;
-    });
+    // this.apiService.getAccInfo(this.email).subscribe((data:any)=>{
+    //   // display info on screen when comes back
+    //   this.user = data;
+    //   console.log(this.user);
+    // });
 
     // gets info from county table in db 
     this.apiService.getCounty(this.email).subscribe((data:any)=>{
@@ -52,9 +53,11 @@ export class ViewOfferComponent implements OnInit {
     });
 
     this.apiService.getOfferDetails(this.email).subscribe((data:any)=>{
-      this.offer = data;
-      console.log(this.offer);
+      this.offers = data;
+      console.log(this.offers);
     });
+
+    
   }
 
 }

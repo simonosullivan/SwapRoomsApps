@@ -51,7 +51,7 @@ export class UserCredentialsService {
   }
 
   // get county
-  getOfferDetails(email): Observable<ApiResponseComponent> {
-    return this.http.get<ApiResponseComponent>(this.url+ 'getOfferDetails.php?email='+email);
+  getOfferDetails(email): Observable<ApiResponseComponent[]> {
+    return this.http.get<ApiResponseComponent[]>(this.url+ 'getOfferDetails.php?email='+email);
   }
 }
