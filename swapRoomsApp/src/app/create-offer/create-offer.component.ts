@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserCredentialsService } from '../services/UserCredentialsService';
 import {Router} from '@angular/router';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
 
 
 @Component({
@@ -18,8 +18,16 @@ export class CreateOfferComponent implements OnInit {
   county: any;
   user: any;
 
+  minDate: Date;
+  maxDate: Date;
+  start = new FormControl(new Date());
 
-  constructor(private apiService: UserCredentialsService, private fb : FormBuilder, private router: Router) { }
+
+  constructor(private apiService: UserCredentialsService, private fb : FormBuilder, private router: Router) { 
+    const currentYear = new Date().getFullYear();
+    this.minDate = new Date(currentYear - 20, 0, 1);
+    this.maxDate = new Date(currentYear + 1, 11, 31);
+  }
 
   ngOnInit() {
     // if signed in, there will be a token
@@ -56,6 +64,9 @@ export class CreateOfferComponent implements OnInit {
       start: '',
       end: ''
      })
+
+
+    
 
   }
 
