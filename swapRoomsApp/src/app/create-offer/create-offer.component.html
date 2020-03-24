@@ -1,9 +1,3 @@
-<head>
-  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-</head>
-
 <div class="background">
   <div class="container">
     <h1>Create Offer</h1>
@@ -12,9 +6,9 @@
 
     <form [formGroup]="createOffer" (ngSubmit)="onSubmit()">
 
-      <div class="panel panel-info"  >
-        <div class="panel-heading">Room Details</div>
-        <div class="panel-body">
+      <div class="card "  >
+        <div class="card-header bg-info">Room Details</div>
+        <div class="card-body">
   
           <div class="row">
             <div class="col-md-6">
@@ -55,9 +49,9 @@
         </div>
       </div>
 
-      <div class="panel panel-info"  >
-        <div class="panel-heading">Enter Information here</div>
-        <div class="panel-body">
+      <div class="card "  >
+        <div class="card-header bg-info">Enter Information here</div>
+        <div class="card-body">
   
           <div class="row" id="text-fields">
             <div class="col-md-6">
@@ -118,9 +112,9 @@
 
       
        
-      <div class="panel panel-warning">
-        <div class="panel-heading">Submit Changes</div>
-        <div class="panel-body">
+      <div class="card ">
+        <div class="card-header bg-success">Submit Changes</div>
+        <div class="card-body">
 
           <p>Thank you for keeping your account updated!</p>
 

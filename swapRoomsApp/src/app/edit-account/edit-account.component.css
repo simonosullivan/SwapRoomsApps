@@ -20,12 +20,10 @@
 .profPic{
     
   border-image: round;
-  border: black;
-  
-  
+  border: black;  
 }
 
-.panel{
+.card{
     width: 95%;
     margin: auto;
     padding: 10px;
@@ -122,10 +120,6 @@
   color: #fff;
   background-color: #5cb85c;
 }
-
-
-
-
 
 .funkyradio-info input[type="radio"]:checked ~ label:before,
 .funkyradio-info input[type="checkbox"]:checked ~ label:before {

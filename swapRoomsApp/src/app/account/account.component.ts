@@ -104,7 +104,11 @@ export class AccountComponent implements OnInit {
   }
     
 
-    
+  // To logout 
+  logout(){
+    window.localStorage.removeItem('token');
+    this.router.navigate(['Login']);
+  }
 
 
 

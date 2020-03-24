@@ -44,7 +44,6 @@ import { ViewOfferComponent } from './view-offer/view-offer.component';
     MatNativeDateModule,
     MatFormFieldModule,
     MatInputModule
-
   ],
   providers: [],
   bootstrap: [AppComponent]

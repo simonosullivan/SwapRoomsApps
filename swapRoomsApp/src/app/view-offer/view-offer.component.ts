@@ -60,4 +60,8 @@ export class ViewOfferComponent implements OnInit {
     
   }
 
+  createOfferLink(){
+    this.router.navigate(['createOffer'])
+  }
+
 }

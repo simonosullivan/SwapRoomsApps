@@ -1,8 +1,14 @@
-<head>
-  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-</head>
+
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    
+
+   
 
 <div class="background">
   <div class="container">
@@ -11,19 +17,21 @@
     <div class="row">
       <div class="col-sm-12">
         <div>
-          <img class="profPic" src="https://i.pinimg.com/236x/d9/46/3d/d9463d6fafa219262ea5eea3bfac7c41.jpg" width="300" height="300" class="img-circle">
+          <img class="profPic" src="https://i.pinimg.com/236x/d9/46/3d/d9463d6fafa219262ea5eea3bfac7c41.jpg"  class="rounded-circle">
         </div>
       </div>
     </div>
 
+
+  
     
 
 
     <form [formGroup]="editAcc" (ngSubmit)="onSubmit()">
 
-      <div class="panel panel-info" *ngFor="let u of user">
-        <div class="panel-heading">Personal</div>
-        <div class="panel-body">
+      <div class="card " *ngFor="let u of user">
+        <div class="card-header bg-info">Personal</div>
+        <div class="card-body">
 
           <div class="row" id="text-fields">
             <div class="col-md-6" >
@@ -69,9 +77,9 @@
         </div>
       </div>
 
-      <div class="panel panel-info"  >
-        <div class="panel-heading">Room Details</div>
-        <div class="panel-body">
+      <div class="card "  >
+        <div class="card-header bg-info">Room Details</div>
+        <div class="card-body">
 
           <div class="row" id="text-fields">
             <div class="col-md-6">
@@ -117,9 +125,9 @@
         </div>
       </div>
 
-      <div class="panel panel-info" >
-        <div class="panel-heading">Amenities</div>
-        <div class="panel-body">
+      <div class="card " >
+        <div class="card-header bg-info">Amenities</div>
+        <div class="card-body">
           <div class="col-md-12">
       
             <div class="funkyradio" *ngFor="let a of amenities">
@@ -236,9 +244,9 @@
     
 
        
-      <div class="panel panel-warning">
-        <div class="panel-heading">Submit Changes</div>
-        <div class="panel-body">
+      <div class="card ">
+        <div class="card-header bg-warning">Submit Changes</div>
+        <div class="card-body">
 
           <p>Thank you for keeping your account updated!</p>
 
@@ -258,3 +266,11 @@
   </div>
 </div>
 
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

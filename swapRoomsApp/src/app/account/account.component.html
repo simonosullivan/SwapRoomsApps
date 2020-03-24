@@ -1,17 +1,21 @@
-<head>
-  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-</head>
+
 
 <div class="background">
   <div class="container">
+    
+    <div class="col-sm-4 ">
+      <!-- To logout -->
+      <div *ngIf="token">
+        <button class="btn btn-outline-danger " (click)="logout()">Logout</button>
+      </div> 
+    </div>
     <h1>Account</h1>
+
 
     <div class="row">
       <div class="col-sm-12">
         <div>
-          <img class="profPic" src="https://i.pinimg.com/236x/d9/46/3d/d9463d6fafa219262ea5eea3bfac7c41.jpg" width="300" height="300" class="img-circle">
+          <img class="profPic" src="https://i.pinimg.com/236x/d9/46/3d/d9463d6fafa219262ea5eea3bfac7c41.jpg"  class="rounded-circle">
         </div>
       </div>
     </div>
@@ -23,9 +27,9 @@
       </div>
     </div>
 
-    <div class="panel panel-info" *ngFor="let u of user">
-      <div class="panel-heading">Personal</div>
-      <div class="panel-body">
+    <div class="card " *ngFor="let u of user">
+      <div class="card-header bg-info">Personal</div>
+      <div class="card-body">
 
         <div class="row">
           <div class="col-md-6" >
@@ -65,9 +69,9 @@
       </div>
     </div>
 
-    <div class="panel panel-info"  >
-      <div class="panel-heading">Room Details</div>
-      <div class="panel-body">
+    <div class="card "  >
+      <div class="card-header bg-info">Room Details</div>
+      <div class="card-body">
 
         <div class="row">
           <div class="col-md-6">
@@ -107,9 +111,9 @@
       </div>
     </div>
 
-    <div class="panel panel-info"   *ngFor="let a of amenities">
-      <div class="panel-heading">Amenities</div>
-      <div class="panel-body" >
+    <div class="card "   *ngFor="let a of amenities">
+      <div class="card-header bg-info">Amenities</div>
+      <div class="card-body" >
 
         <div class="row">
           
@@ -282,9 +286,9 @@
       </div>
     </div>
 
-    <div class="panel panel-warning">
-      <div class="panel-heading">Change Password</div>
-      <div class="panel-body">
+    <div class="card ">
+      <div class="card-header bg-warning">Change Password</div>
+      <div class="card-body">
 
         <form [formGroup]="changePass" (ngSubmit)="onSubmit()">
         
