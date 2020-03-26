@@ -34,8 +34,15 @@
     
   border-image: round;
   border: black;
-  
-  
+  height: 40%;
+  width: 40%;
+  margin: auto;
+}
+
+.cardImg{
+  height: 80%;
+  width: 80%;
+  margin: 15px auto;
 }
 
 .panel{
@@ -155,3 +162,4 @@
   from {opacity: .4}
   to {opacity: 1}
 }
+

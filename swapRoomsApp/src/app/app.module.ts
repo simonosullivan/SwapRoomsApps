@@ -17,6 +17,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { EditAccountComponent } from './edit-account/edit-account.component';
 import { CreateOfferComponent } from './create-offer/create-offer.component';
 import { ViewOfferComponent } from './view-offer/view-offer.component';
+import { NgImageSliderModule } from 'ng-image-slider';
 
 
 @NgModule({
@@ -43,7 +44,8 @@ import { ViewOfferComponent } from './view-offer/view-offer.component';
     MatDatepickerModule, 
     MatNativeDateModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    NgImageSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

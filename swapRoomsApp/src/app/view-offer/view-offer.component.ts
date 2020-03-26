@@ -37,28 +37,45 @@ export class ViewOfferComponent implements OnInit {
     // Get signed in email for all services
     this.email = window.localStorage.getItem('email');
 
-    // Gets info from account table in db
-    // this.apiService.getAccInfo(this.email).subscribe((data:any)=>{
+    // // gets info from county table in db 
+    // this.apiService.getCounty(this.email).subscribe((data:any)=>{
     //   // display info on screen when comes back
-    //   this.user = data;
-    //   console.log(this.user);
+    //   this.county = data.county;
+    //   console.log(this.county);
+
     // });
-
-    // gets info from county table in db 
-    this.apiService.getCounty(this.email).subscribe((data:any)=>{
-      // display info on screen when comes back
-      this.county = data.county;
-      console.log(this.county);
-
-    });
 
     this.apiService.getOfferDetails(this.email).subscribe((data:any)=>{
       this.offers = data;
       console.log(this.offers);
     });
 
+
+    
+    
+
     
   }
+
+
+  // Images List
+  imageObject: Array<object> = [{
+    image: 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg',
+    thumbImage: 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg',
+        alt: 'alt of image',
+    title: 'title of image'
+}, {
+    image: 'https://cdn.pixabay.com/photo/2015/02/24/15/41/dog-647528__340.jpg', // Support base64 image
+    thumbImage: 'https://cdn.pixabay.com/photo/2015/02/24/15/41/dog-647528__340.jpg',
+    alt: 'alt of image',
+    title: 'Image alt' //Optional: You can use this key if want to show image with alt
+},{
+  image: 'https://www.bigstockphoto.com/images/homepage/module-6.jpg',
+  thumbImage: 'https://www.bigstockphoto.com/images/homepage/module-6.jpg',
+      alt: 'alt of image',
+  title: 'title of image'
+}
+];
 
   createOfferLink(){
     this.router.navigate(['createOffer'])

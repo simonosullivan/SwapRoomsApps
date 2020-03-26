@@ -45,9 +45,14 @@ export class UserCredentialsService {
     return this.http.post<ApiResponseComponent>(this.url + 'editAccount.php', userInfo);
   }
 
-  //Change Password
+  //Create Offer
   createOffer(offerData) : Observable<ApiResponseComponent>{
     return this.http.post<ApiResponseComponent>(this.url + 'createOffer.php', offerData);
+  }
+
+  //Create Offer
+  uploadImages(sqlImages) : Observable<ApiResponseComponent>{
+    return this.http.post<ApiResponseComponent>(this.url + 'fileUpload/uploadImages.php', sqlImages);
   }
 
   // get county

@@ -17,18 +17,12 @@ export class CreateOfferComponent implements OnInit {
   token: any;
   county: any;
   user: any;
-
-  minDate: Date;
-  maxDate: Date;
-  start = new FormControl(new Date());
+  myFiles: string [] = [];
+  profPic: any;
 
 
-  constructor(private apiService: UserCredentialsService, private fb : FormBuilder, private router: Router) { 
-    const currentYear = new Date().getFullYear();
-    this.minDate = new Date(currentYear - 20, 0, 1);
-    this.maxDate = new Date(currentYear + 1, 11, 31);
-  }
 
+  constructor(private apiService: UserCredentialsService, private fb : FormBuilder, private router: Router) { }
   ngOnInit() {
     // if signed in, there will be a token
     this.token = window.localStorage.getItem('token');
@@ -65,25 +59,59 @@ export class CreateOfferComponent implements OnInit {
       end: ''
      })
 
+     
 
     
 
   }
 
-  onSubmit(){
-      const offerData = {
-        email : this.email,
-        option1: this.createOffer.controls.option1.value,
-        option2: this.createOffer.controls.option2.value,
-        option3: this.createOffer.controls.option3.value,
-        start: this.createOffer.controls.start.value,
-        end: this.createOffer.controls.end.value
-      }
+  // onFileSelect(event){
+    
+  //   for(let i=1; i <= (event.target.files.length); i++){
+  //      this.myFiles.push(event.target.files[i]);
+  //   }
+  //   console.log(this.myFiles);
+  // }
 
-      this.apiService.createOffer(offerData).subscribe((data:any)=>{
-        this.message = data.message;
-        this.router.navigate(['viewOffer']);
-      });
+  // profPicSelect(event){
+  //   this.myFiles.push(event.target.files[0]);
+  // }
+
+  onSubmit(){
+
+    // const sqlImages = new FormData();
+
+    // sqlImages.append('email', this.email);
+    // sqlImages.append('fileUpload[]', this.myFiles[0]);
+
+    // for(let i=1; i <= this.myFiles.length; i++){
+    //   sqlImages.append('fileUpload[]', this.myFiles[i]);
+    // }
+
+    // console.log(sqlImages);
+    
+    // this.apiService.uploadImages(sqlImages).subscribe((data:any)=>{
+    //   this.message = data.message;
+    //   console.log(this.message);
+    // });
+
+
+
+    const offerData = {
+      email : this.email,
+      option1: this.createOffer.controls.option1.value,
+      option2: this.createOffer.controls.option2.value,
+      option3: this.createOffer.controls.option3.value,
+      start: this.createOffer.controls.start.value,
+      end: this.createOffer.controls.end.value
+    }
+
+    this.apiService.createOffer(offerData).subscribe((data:any)=>{
+      this.message = data.message;
+      this.router.navigate(['viewOffer']);
+    });
+
+      
   }
 
 }
