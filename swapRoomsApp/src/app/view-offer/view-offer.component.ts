@@ -21,6 +21,19 @@ export class ViewOfferComponent implements OnInit {
   token: any;
   county: any;
   offers: any;
+  filteredOffers: any;
+  private _searchTerm: string;
+  get searchTerm():string{
+    return this._searchTerm;
+  }
+  set searchTerm(value:string){
+    this._searchTerm = value;
+    this.filteredOffers = this.filterOffers(value);
+  }
+
+  filterOffers(searchString: string){
+    return this.offers.filter(offer => offer.addrRm.toLowerCase().indexOf(searchString.toLowerCase()) !== -1);
+  }
 
   constructor(private apiService: UserCredentialsService, private fb : FormBuilder, private router: Router) { }
 
@@ -37,48 +50,26 @@ export class ViewOfferComponent implements OnInit {
     // Get signed in email for all services
     this.email = window.localStorage.getItem('email');
 
-    // // gets info from county table in db 
-    // this.apiService.getCounty(this.email).subscribe((data:any)=>{
-    //   // display info on screen when comes back
-    //   this.county = data.county;
-    //   console.log(this.county);
-
-    // });
+    
 
     this.apiService.getOfferDetails(this.email).subscribe((data:any)=>{
       this.offers = data;
+      this.filteredOffers = this.offers;
       console.log(this.offers);
+      if(this.offers.length == 0){
+        this.message = "There are no open offers. Try again later";
+      }
     });
-
-
-    
-    
-
     
   }
 
 
-  // Images List
-  imageObject: Array<object> = [{
-    image: 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg',
-    thumbImage: 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg',
-        alt: 'alt of image',
-    title: 'title of image'
-}, {
-    image: 'https://cdn.pixabay.com/photo/2015/02/24/15/41/dog-647528__340.jpg', // Support base64 image
-    thumbImage: 'https://cdn.pixabay.com/photo/2015/02/24/15/41/dog-647528__340.jpg',
-    alt: 'alt of image',
-    title: 'Image alt' //Optional: You can use this key if want to show image with alt
-},{
-  image: 'https://www.bigstockphoto.com/images/homepage/module-6.jpg',
-  thumbImage: 'https://www.bigstockphoto.com/images/homepage/module-6.jpg',
-      alt: 'alt of image',
-  title: 'title of image'
-}
-];
-
   createOfferLink(){
     this.router.navigate(['createOffer'])
+  }
+
+  seeDetails(email){
+    this.router.navigate(['detailedOffer/'+email])
   }
 
 }

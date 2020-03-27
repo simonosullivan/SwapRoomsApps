@@ -59,4 +59,11 @@ export class UserCredentialsService {
   getOfferDetails(email): Observable<ApiResponseComponent[]> {
     return this.http.get<ApiResponseComponent[]>(this.url+ 'getOfferDetails.php?email='+email);
   }
+
+
+  changeStatusOffer(offerOwner): Observable<ApiResponseComponent> {
+    console.log(offerOwner);
+    return this.http.post<ApiResponseComponent>(this.url+ 'changeStatusOffer.php', offerOwner);
+  }
+
 }

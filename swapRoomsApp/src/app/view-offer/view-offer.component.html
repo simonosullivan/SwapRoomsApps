@@ -5,13 +5,21 @@
 
   
   <div class="container">
+    
+    <div class="form-group">
+      <input type="text" class="form-control" placeholder="Search"
+      style="width: 300px;" [(ngModel)]="searchTerm">
+    </div>
 
     <div class="row">
     <div class="col-sm-4"></div>
     <div class="col-sm-4"></div>
     <div class="col-sm-4"><button class="btn btn-outline-success" (click)="createOfferLink()">Create Offer</button></div>
-  </div>
-    <div class="card border-dark mb-3 styleCard" *ngFor="let o of offers" >
+    </div>
+    <div>
+      <h3 *ngIf="message != null">{{message}}</h3>
+    </div>
+    <div class="card border-dark mb-3 styleCard" *ngFor="let o of filteredOffers" >
 
       
 
@@ -89,9 +97,11 @@
             <p>{{o.end}}</p>
           </div>
         </div>
+
+       
         
         
-        <a href="#" class="btn btn-primary">See all details</a>
+        <a class="btn btn-primary" (click)="seeDetails(o.email)">See all details</a>
       </div>
     </div>
   </div>

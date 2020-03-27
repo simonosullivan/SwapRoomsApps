@@ -1,0 +1,244 @@
+<div class="background">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4"><button class="btn btn-outline-success" (click)="createOfferLink()">Create Offer</button></div>
+    </div>
+    <div class="card border-dark mb-3 styleCard"  >
+      <ng-image-slider [images]="imageObject" #nav></ng-image-slider>
+      <!-- <img src="http://localhost:80/Test_Login_SwapRms/fileUpload/{{o.pathToImages}}/rm1" class="card-img-top cardImg" alt="..."> -->
+      <div class="card-body">
+        <h5 class="card-title" >{{offer.titleRm}}</h5>
+        <div class="row" >
+          <div class="col-md-6">
+            <p>Room Description</p>
+          </div>
+          <div class="col-md-6">
+            <p>{{offer.descripRm}}</p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <p>Location</p>
+          </div>
+          <div class="col-md-6">
+            <p>{{offer.addrRm}}</p>
+          </div>
+        </div>
+
+        <div class="row" >
+          <div class="col-md-6">
+            <p>Preferred Places to swap with</p>
+          </div>
+          <div class="col-md-6" >
+            <p>{{offer.option1}}</p>
+          </div>
+        </div>
+
+        <div class="row" >
+          <div class="col-md-6"></div>
+          <div class="col-md-6" >
+            <p>{{offer.option2}}</p>
+          </div>
+        </div>
+        <div class="row" >
+          <div class="col-md-6"></div>
+          <div class="col-md-6" >
+            <p>{{offer.option3}}</p>
+          </div>
+        </div>
+
+        <div class="row" >
+          <div class="col-md-6">
+            <p>Availability</p>
+          </div>
+        </div>
+
+        <div class="row" >
+          <div class="col-md-6" >
+            <p>Start Date</p>
+          </div>
+          <div class="col-md-6" >
+            <p>{{offer.start}}</p>
+          </div>
+        </div>
+
+        <div class="row"  >
+          <div class="col-md-6">
+            <p>End Date</p>
+          </div>
+          <div class="col-md-6" >
+            <p>{{offer.end}}</p>
+          </div>
+        </div>
+
+
+        <div class="row" *ngFor="let a of amenities">
+          <div class="col-md-12" >
+            <h5>Amenities</h5>
+            <div class="row" >
+              <div class="col-md-12" [hidden]="a.wifi == '0'">
+                <p>Wifi</p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12" [hidden]="a.cableTV == '0'">
+                <p>Cable TV</p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12" [hidden]="a.iron == '0'">
+                <p>Iron</p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12" [hidden]="a.tv == '0'">
+                <p>TV</p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12" [hidden]="a.essentials == '0'">
+                <p>Essentials</p>
+              </div>
+            </div>
+  
+            <button type="button" class="btn btn-info pointerCursor" (click)="isHidden = !isHidden">See all Amenities</button> 
+            <div [hidden]="isHidden">
+              
+              <div class="row">
+                <div class="col-md-12" [hidden]="a.washingMachine == '0'">
+                  <p>Washing Machine</p>
+                </div>
+              </div>
+      
+              <div class="row">
+                <div class="col-md-12" [hidden]="a.heating == '0'">
+                  <p>Heating</p>
+                </div>
+              </div>
+      
+              <div class="row">
+                <div class="col-md-12" [hidden]="a.laptopWorkspace == '0'">
+                  <p>Laptop Friendly Workspace</p>
+                </div>
+              </div>
+              <div class="row">
+                
+                <div class="col-md-12" [hidden]="a.hotWater == '0'">
+                  <p>Hot Water</p>
+                </div>
+              </div>
+      
+              <div class="row">
+                <div class="col-md-12" [hidden]="a.freeParking == '0'">
+                  <p>Free Parking</p>
+                </div>
+              </div>
+      
+              <div class="row">
+                <div class="col-md-12" [hidden]="a.kitchen == '0'">
+                  <p>Kitchen</p>
+                </div>
+              </div>
+              <div class="row">
+                
+                <div class="col-md-12" [hidden]="a.stove == '0'">
+                  <p>Stove</p>
+                </div>
+              </div>
+      
+              <div class="row">
+                <div class="col-md-12" [hidden]="a.microwave == '0'">
+                  <p>Microwave</p>
+                </div>
+              </div>
+      
+              <div class="row">
+                <div class="col-md-12" [hidden]="a.cookingBasics == '0'">
+                  <p>Cooking Basics</p>
+                </div>
+              </div>
+              <div class="row">
+                
+                <div class="col-md-12" [hidden]="a.refridgerator == '0'">
+                  <p>Refridgerator</p>
+                </div>
+              </div>
+      
+              <div class="row">
+                <div class="col-md-12" [hidden]="a.dishesSilverware == '0'">
+                  <p>Dishes & Silverware</p>
+                </div>
+              </div>
+      
+              <div class="row">
+                <div class="col-md-12" [hidden]="a.smartLock == '0'">
+                  <p>Smart Lock</p>
+                </div>
+              </div>
+              <div class="row">
+                
+                <div class="col-md-12" [hidden]="a.shampoo == '0'">
+                  <p>Shampoo</p>
+                </div>
+              </div>
+      
+              <div class="row">
+                <div class="col-md-12" [hidden]="a.hairDryer == '0'">
+                  <p>Hair Dryer</p>
+                </div>
+              </div>
+      
+              <div class="row">
+                <div class="col-md-12" [hidden]="a.hangers == '0'">
+                  <p>Hangers</p>
+                </div>
+              </div>
+              <div class="row">
+                
+                <div class="col-md-12" [hidden]="a.entirePlace == '0'">
+                  <p>Entire Place</p>
+                </div>
+              </div>
+      
+              <div class="row">
+                <div class="col-md-12" [hidden]="a.privateRoom == '0'">
+                  <p>Private Room</p>
+                </div>
+              </div>
+      
+              <div class="row">
+                <div class="col-md-12" [hidden]="a.sharedRoom == '0'">
+                  <p>Shared Room</p>
+                </div>
+              </div>
+      
+              <div class="row">
+                <div class="col-md-12" [hidden]="a.doubleBed == '0'">
+                  <p>Double Bed</p>
+                </div>
+              </div>
+      
+              <div class="row">
+                <div class="col-md-12" [hidden]="a.singleBed == '0'">
+                  <p>Single Bed</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> 
+        
+        
+        <a class="btn btn-primary" (click)="acceptOffer()">Accept</a>
+        <h3 *ngIf="message">{{message}}</h3>
+      </div>
+    </div>
+  </div>
+</div>

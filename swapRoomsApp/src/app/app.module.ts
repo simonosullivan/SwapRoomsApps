@@ -18,6 +18,7 @@ import { EditAccountComponent } from './edit-account/edit-account.component';
 import { CreateOfferComponent } from './create-offer/create-offer.component';
 import { ViewOfferComponent } from './view-offer/view-offer.component';
 import { NgImageSliderModule } from 'ng-image-slider';
+import { DetailsOfferComponent } from './details-offer/details-offer.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { NgImageSliderModule } from 'ng-image-slider';
     AccountComponent,
     EditAccountComponent,
     CreateOfferComponent,
-    ViewOfferComponent
+    ViewOfferComponent,
+    DetailsOfferComponent
   ],
   imports: [
     BrowserModule,
