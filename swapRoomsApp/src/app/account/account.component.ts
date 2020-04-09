@@ -45,7 +45,7 @@ export class AccountComponent implements OnInit {
 
     this.apiService.getImages(this.userId).subscribe((data:any)=>{
       this.offer = data;
-      this.image = 'http://localhost:80/Test_Login_SwapRms/fileUpload/'+this.offer.profPic+'/profPic.png';
+      this.image = 'http://35.246.80.226:80/Test_Login_SwapRms/fileUpload/'+this.offer.profPic+'/profPic.png';
       
     });
 

@@ -25,7 +25,7 @@ export class AppComponent implements OnInit{
 
       console.log(this.offer.profPic);
 
-      this.image = 'http://localhost:80/Test_Login_SwapRms/fileUpload/'+this.offer.profPic+'/profPic.png';
+      this.image = 'http://35.246.80.226:80/Test_Login_SwapRms/fileUpload/'+this.offer.profPic+'/profPic.png';
       
     });
 

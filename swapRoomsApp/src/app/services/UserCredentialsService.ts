@@ -8,7 +8,7 @@ import { ApiResponseComponent } from '../Model/api-response/api-response.compone
 })
 export class UserCredentialsService {
   
-  url = 'http://localhost/Test_Login_SwapRms/';
+  url = 'http://35.246.80.226/Test_Login_SwapRms/';
   constructor(private http: HttpClient) { }
 
   // Login
