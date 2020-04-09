@@ -23,6 +23,7 @@ export class ViewOfferComponent implements OnInit {
   offers: any;
   filteredOffers: any;
   private _searchTerm: string;
+  userId: string;
   get searchTerm():string{
     return this._searchTerm;
   }
@@ -32,7 +33,7 @@ export class ViewOfferComponent implements OnInit {
   }
 
   filterOffers(searchString: string){
-    return this.offers.filter(offer => offer.addrRm.toLowerCase().indexOf(searchString.toLowerCase()) !== -1);
+    return this.offers.filter(offer => offer.county.toLowerCase().indexOf(searchString.toLowerCase()) !== -1);
   }
 
   constructor(private apiService: UserCredentialsService, private fb : FormBuilder, private router: Router) { }
@@ -48,11 +49,11 @@ export class ViewOfferComponent implements OnInit {
     } 
 
     // Get signed in email for all services
-    this.email = window.localStorage.getItem('email');
+    this.userId = window.localStorage.getItem('userId');
 
     
 
-    this.apiService.getOfferDetails(this.email).subscribe((data:any)=>{
+    this.apiService.getOfferDetails(this.userId).subscribe((data:any)=>{
       this.offers = data;
       this.filteredOffers = this.offers;
       console.log(this.offers);
@@ -68,8 +69,8 @@ export class ViewOfferComponent implements OnInit {
     this.router.navigate(['createOffer'])
   }
 
-  seeDetails(email){
-    this.router.navigate(['detailedOffer/'+email])
+  seeDetails(userId, offerId){
+    this.router.navigate(['detailedOffer/'+userId+'/'+offerId]);
   }
 
 }

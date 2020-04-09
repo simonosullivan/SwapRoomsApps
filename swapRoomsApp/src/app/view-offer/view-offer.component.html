@@ -20,12 +20,9 @@
       <h3 *ngIf="message != null">{{message}}</h3>
     </div>
     <div class="card border-dark mb-3 styleCard" *ngFor="let o of filteredOffers" >
-
-      
-
-      <!-- <ng-image-slider [images]="imageObject" #nav></ng-image-slider> -->
-
-
+      <div class="col-sm-4">
+        <p>Offer Id : #{{o.offerId}}</p>
+      </div>
 
       <img src="http://localhost:80/Test_Login_SwapRms/fileUpload/{{o.pathToImages}}/rm1" class="card-img-top cardImg" alt="...">
       <div class="card-body">
@@ -48,7 +45,7 @@
             <p>Location</p>
           </div>
           <div class="col-md-6">
-            <p>{{o.addrRm}}</p>
+            <p>{{o.county}}</p>
           </div>
         </div>
 
@@ -101,7 +98,7 @@
        
         
         
-        <a class="btn btn-primary" (click)="seeDetails(o.email)">See all details</a>
+        <a class="btn btn-primary" (click)="seeDetails(o.userId, o.offerId)">See all details</a>
       </div>
     </div>
   </div>

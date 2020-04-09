@@ -22,6 +22,10 @@ export class AccountComponent implements OnInit {
   verify: any;
   token: any;
   county: any;
+  room: any;
+  userId: string;
+  offer: any;
+  image: string;
   constructor(private apiService: UserCredentialsService, private fb : FormBuilder, private router: Router) { }
 
   ngOnInit() {
@@ -36,26 +40,41 @@ export class AccountComponent implements OnInit {
 
     // Get signed in email for all services
     this.email = window.localStorage.getItem('email');
+    this.userId = window.localStorage.getItem('userId');
+
+
+    this.apiService.getImages(this.userId).subscribe((data:any)=>{
+      this.offer = data;
+      this.image = 'http://localhost:80/Test_Login_SwapRms/fileUpload/'+this.offer.profPic+'/profPic.png';
+      
+    });
 
     // Gets info from account table in db
     this.apiService.getAccInfo(this.email).subscribe((data:any)=>{
       // display info on screen when comes back
-      this.user = data;
+      this.user = data[0];
+
+      console.log(this.user);
+      if(this.user.fname == null && this.user.lname == null && this.user.preferEmail == null){
+        this.router.navigate(['setUpAccount']);
+      }
+      
+      this.apiService.getRoom(this.user.userId).subscribe((data:any)=>{
+        // display info on screen when comes back
+        this.room = data[0];
+
+        // // gets info from amenities table in db
+        this.apiService.getAmenities(this.room.rmId).subscribe((data:any)=>{
+          // display info on screen when comes back
+          this.amenities = data[0];
+        });
+
+      });
+
+  
     });
 
-    // gets info from amenities table in db
-    this.apiService.getAmenities(this.email).subscribe((data:any)=>{
-      // display info on screen when comes back
-      this.amenities = data;      
-    });
-
-    // gets info from county table in db 
-    this.apiService.getCounty(this.email).subscribe((data:any)=>{
-      // display info on screen when comes back
-      this.county = data.county;
-      console.log(this.county);
-
-    });
+   
 
     // setting validators for password
     this.changePass = this.fb.group({
@@ -81,7 +100,6 @@ export class AccountComponent implements OnInit {
       this.apiService.changePassword(userData).subscribe((data:any)=>{
         // 
         this.message = data.message;
-        console.log(this.message);
 
         this.changePass = this.fb.group({
           password : ['', Validators.required],
@@ -107,7 +125,23 @@ export class AccountComponent implements OnInit {
   // To logout 
   logout(){
     window.localStorage.removeItem('token');
+    window.localStorage.removeItem('email');
+    window.localStorage.removeItem('userId');
     this.router.navigate(['Login']);
+  }
+
+  deleteAccount(){
+    console.log(this.userId);
+    this.apiService.deleteAcc(this.userId).subscribe((data:any)=>{
+      this.message = data.message;
+
+      if(this.message == "Deleted Account"){
+        window.localStorage.removeItem('token');
+        window.localStorage.removeItem('email');
+        window.localStorage.removeItem('userId');
+        this.router.navigate(['/']);
+      }
+    });
   }
 
 

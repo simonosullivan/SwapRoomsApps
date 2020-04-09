@@ -1,0 +1,298 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    
+
+   
+
+<div class="background">
+  <div class="container">
+    <h1>Please Finish Setting Up Your Account</h1>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <div>
+          <img class="profPic" src="https://i.pinimg.com/236x/d9/46/3d/d9463d6fafa219262ea5eea3bfac7c41.jpg"  class="rounded-circle">
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="card "  >
+      <div class="card-header bg-info">Upload Profile Picture</div>
+      <div class="card-body">
+
+       <input type="file" name="images" (change)="profPicSelect($event)" >
+
+      </div>
+    </div>
+
+    <div class="card "  >
+      <div class="card-header bg-info">Upload Room Images</div>
+      <div class="card-body">
+
+       <input type="file" name="images" (change)="onFileSelect($event)" multiple>
+
+      </div>
+    </div>
+
+
+  
+    
+
+
+    <form [formGroup]="editAcc" (ngSubmit)="onSubmit()">
+
+      <div class="card " >
+        <div class="card-header bg-info">Personal</div>
+        <div class="card-body">
+
+          <div class="row" id="text-fields">
+            <div class="col-md-6" >
+              <label>First Name</label>
+            </div>
+            <div class="col-md-6" >
+              <input type="text"  formControlName="fname" placeholder="First Name"
+                name="fname" class="form-control" id="fname" required>
+            </div>
+          </div>
+        
+
+          <div class="row" id="text-fields">
+            <div class="col-md-6">
+              <label>Last Name</label>
+            </div>
+            <div class="col-md-6" >
+              <input type="text"  formControlName="lname" placeholder="Last Name"
+                name="lname" class="form-control" id="lname" required>
+            </div>
+          </div>
+
+          <div class="row" id="text-fields">
+            <div class="col-md-6">
+              <label>Email</label>
+            </div>
+            <div class="col-md-6" >
+              <input type="email" [(ngModel)]="user.email" formControlName="email" placeholder="Email"
+                name="email" class="form-control" id="email">
+            </div>
+          </div>
+
+          <div class="row" id="text-fields">
+            <div class="col-md-6" >
+              <label>Preferred Email</label>
+            </div>
+            <div class="col-md-6" >
+              <input type="email"  formControlName="preferEmail" placeholder="Preferred Email"
+                name="preferEmail" class="form-control" id="preferEmail" required>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="card "  >
+        <div class="card-header bg-info">Room Details</div>
+        <div class="card-body">
+
+          <div class="row" id="text-fields">
+            <div class="col-md-6">
+              <label>Room Title</label>
+            </div>
+            <div class="col-md-6" >
+              <input type="text"  formControlName="titleRm" placeholder="Room Title"
+                name="titleRm" class="form-control" id="titleRm" required>
+            </div>
+          </div>
+
+          <div class="row" id="text-fields">
+            <div class="col-md-6" >
+              <label>Description</label>
+            </div>
+            <div class="col-md-6" >
+              <input type="text"  formControlName="descripRm" placeholder="Description"
+                name="descripRm" class="form-control" id="descripRm" required>
+            </div>
+          </div>
+
+          <div class="row" id="text-fields">
+            <div class="col-md-6" >
+              <label>Address</label>
+            </div>
+            <div class="col-md-6" >
+              <input type="text"  formControlName="addrRm" placeholder="Address"
+                name="addrRm" class="form-control" id="addrRm" required>
+            </div>
+          </div>
+
+          <div class="row" id="text-fields">
+            <div class="col-md-6">
+              <label>County</label>
+            </div>
+            <div class="col-md-6" >
+              <input type="text"  formControlName="county" placeholder="County"
+                name="county" class="form-control" id="county" required>
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="card " >
+        <div class="card-header bg-info">Amenities</div>
+        <div class="card-body">
+          <div class="col-md-12">
+      
+            <div class="funkyradio" >
+              <div class="funkyradio-success"  >
+                  <input type="checkbox"  formControlName="wifiCheck" id="wifiCheck" class="form-control" />
+                  <label for="wifiCheck">Wifi</label>
+              </div>
+              <div class="funkyradio-success">
+                  <input type="checkbox"  formControlName="cabletvCheck" id="cabletvCheck" class="form-control" />
+                  <label for="cabletvCheck">Cable TV</label>
+              </div>
+              <div class="funkyradio-success">
+                  <input type="checkbox"   formControlName="ironCheck" id="ironCheck" class="form-control" />
+                  <label for="ironCheck">Iron</label>
+              </div>
+              <div class="funkyradio-success">
+                  <input type="checkbox"  formControlName="tvCheck" id="tvCheck" class="form-control" />
+                  <label for="tvCheck">TV</label>
+              </div>
+              <div class="funkyradio-success">
+                  <input type="checkbox"  formControlName="essentialsCheck" id="essentialsCheck" class="form-control" />
+                  <label for="essentialsCheck">Essentials</label>
+              </div>
+              <div class="funkyradio-success">
+                  <input type="checkbox"  formControlName="washMachineCheck" id="washMachineCheck" class="form-control" />
+                  <label for="washMachineCheck">Washing Machine</label>
+              </div>
+              <div class="funkyradio-success">
+                <input type="checkbox"  formControlName="heatCheck" id="heatCheck" class="form-control" />
+                <label for="heatCheck">Heating</label>
+              </div>
+              <div class="funkyradio-success">
+                  <input type="checkbox" formControlName="laptopCheck" id="laptopCheck" class="form-control" />
+                  <label for="laptopCheck">Laptop Friendly Workspace</label>
+              </div>
+              <div class="funkyradio-success">
+                <input type="checkbox"  formControlName="hotwaterCheck" id="hotwaterCheck" class="form-control" />
+                <label for="hotwaterCheck">Hot Water</label>
+              </div>
+              <div class="funkyradio-success">
+                <input type="checkbox"  formControlName="freeparkCheck" id="freeparkCheck" class="form-control" />
+                <label for="freeparkCheck">Free Parking</label>
+              </div>
+              <div class="funkyradio-success">
+                  <input type="checkbox"  formControlName="kitchenCheck" id="kitchenCheck" class="form-control" />
+                  <label for="kitchenCheck">Kitchen</label>
+              </div>
+              <div class="funkyradio-success">
+                <input type="checkbox"  formControlName="stoveCheck" id="stoveCheck" class="form-control" />
+                <label for="stoveCheck">Stove</label>
+              </div>
+              <div class="funkyradio-success">
+                <input type="checkbox"  formControlName="microwaveCheck" id="microwaveCheck" class="form-control" />
+                <label for="microwaveCheck">Microwave</label>
+              </div>
+              <div class="funkyradio-success">
+                  <input type="checkbox"  formControlName="cookingCheck" id="cookingCheck" class="form-control" />
+                  <label for="cookingCheck">Cooking Basics</label>
+              </div>
+              <div class="funkyradio-success">
+                <input type="checkbox"  formControlName="fridgeCheck" id="fridgeCheck" class="form-control" />
+                <label for="fridgeCheck">Refridgerator</label>
+              </div>
+              <div class="funkyradio-success">
+                <input type="checkbox"  formControlName="dishesCheck" id="dishesCheck" class="form-control" />
+                <label for="dishesCheck">Dishes & Silverware</label>
+              </div>
+              <div class="funkyradio-success">
+                  <input type="checkbox"  formControlName="lockCheck" id="lockCheck" class="form-control" />
+                  <label for="lockCheck">Smart Lock</label>
+              </div>
+              <div class="funkyradio-success">
+                <input type="checkbox"  formControlName="shampooCheck" id="shampooCheck" class="form-control" />
+                <label for="shampooCheck">Shampoo</label>
+              </div>
+              <div class="funkyradio-success">
+                <input type="checkbox"  formControlName="hairdryerCheck" id="hairdryerCheck" class="form-control" />
+                <label for="hairdryerCheck">Hair Dryer</label>
+              </div>
+              <div class="funkyradio-success">
+                <input type="checkbox" formControlName="hangersCheck" id="hangersCheck" class="form-control" />
+                <label for="hangersCheck">Hangers</label>
+              </div>
+              <div class="funkyradio-success">
+                <input type="checkbox"  formControlName="entireplaceCheck" id="entireplaceCheck" class="form-control" />
+                <label for="entireplaceCheck">Entire Place</label>
+              </div>
+              <div class="funkyradio-success">
+                <input type="checkbox"  formControlName="privateroomCheck" id="privateroomCheck" class="form-control" />
+                <label for="privateroomCheck">Private Room</label>
+              </div>
+              <div class="funkyradio-success">
+                <input type="checkbox"  formControlName="sharedroomCheck" id="sharedroomCheck" class="form-control" />
+                <label for="sharedroomCheck">Shared Room</label>
+              </div>
+              <div class="funkyradio-success">
+                <input type="checkbox"  formControlName="doublebedCheck" id="doublebedCheck" class="form-control" />
+                <label for="doublebedCheck">Double Bed</label>
+              </div>
+              <div class="funkyradio-success">
+                <input type="checkbox"  formControlName="singlebedCheck" id="singlebedCheck" class="form-control" />
+                <label for="singlebedCheck">Single Bed</label>
+              </div>
+
+            </div>
+            
+
+          </div>
+          
+
+        </div>
+      </div>
+
+    
+
+       
+      <div class="card ">
+        <div class="card-header bg-warning">Submit Changes</div>
+        <div class="card-body">
+
+          <p>Thank you for keeping your account updated!</p>
+
+          <!-- Submit form changes to account  -->
+          <div class="row" style="height: 50px; ">
+            <div class="col-md-12">
+              <button type="submit" class="btn btn-success" [disabled]="editAcc.invalid">Submit</button>
+              <h3 *ngIf="message">{{message}}</h3>
+            </div>
+          </div> 
+          
+        </div>
+      </div>
+
+  </form>
+
+
+  </div>
+</div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

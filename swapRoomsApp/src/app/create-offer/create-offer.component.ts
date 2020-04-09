@@ -19,6 +19,8 @@ export class CreateOfferComponent implements OnInit {
   user: any;
   myFiles: string [] = [];
   profPic: any;
+  userId: string;
+  room: any;
 
 
 
@@ -34,21 +36,27 @@ export class CreateOfferComponent implements OnInit {
 
     // Get signed in email for all services
     this.email = window.localStorage.getItem('email');
+    this.userId = window.localStorage.getItem('userId');
 
     
 
     // Gets info from account table in db
     this.apiService.getAccInfo(this.email).subscribe((data:any)=>{
       // display info on screen when comes back
-      this.user = data;
+      this.user = data[0];
+      
+
+      this.apiService.getRoom(this.user.userId).subscribe((data:any)=>{
+        this.room = data[0];
+      });
     });
 
     // gets info from county table in db 
-    this.apiService.getCounty(this.email).subscribe((data:any)=>{
-      // display info on screen when comes back
-      this.county = data.county;
-      console.log(this.county);
-    });
+    // this.apiService.getCounty(this.email).subscribe((data:any)=>{
+    //   // display info on screen when comes back
+    //   this.county = data.county;
+    //   console.log(this.county);
+    // });
 
     // Creating the form group
     this.createOffer = this.fb.group({
@@ -98,7 +106,7 @@ export class CreateOfferComponent implements OnInit {
 
 
     const offerData = {
-      email : this.email,
+      userId : this.userId,
       option1: this.createOffer.controls.option1.value,
       option2: this.createOffer.controls.option2.value,
       option3: this.createOffer.controls.option3.value,

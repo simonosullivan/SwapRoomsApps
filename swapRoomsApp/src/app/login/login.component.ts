@@ -44,6 +44,7 @@ export class LoginComponent implements OnInit {
     //gets token and stores in local Storage                          
     if(data.token){
       window.localStorage.setItem('token', data.token);
+      window.localStorage.setItem('userId', data.userId);
       window.localStorage.setItem('email', data.email);
       this.router.navigate(['Account']);
     }else{

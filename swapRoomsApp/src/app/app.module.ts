@@ -19,6 +19,9 @@ import { CreateOfferComponent } from './create-offer/create-offer.component';
 import { ViewOfferComponent } from './view-offer/view-offer.component';
 import { NgImageSliderModule } from 'ng-image-slider';
 import { DetailsOfferComponent } from './details-offer/details-offer.component';
+import { NotificationCentreComponent } from './notification-centre/notification-centre.component';
+import { ViewDetailOfferComponent } from './view-detail-offer/view-detail-offer.component';
+import { SetUpAccountComponent } from './set-up-account/set-up-account.component';
 
 
 @NgModule({
@@ -34,7 +37,10 @@ import { DetailsOfferComponent } from './details-offer/details-offer.component';
     EditAccountComponent,
     CreateOfferComponent,
     ViewOfferComponent,
-    DetailsOfferComponent
+    DetailsOfferComponent,
+    NotificationCentreComponent,
+    ViewDetailOfferComponent,
+    SetUpAccountComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +53,7 @@ import { DetailsOfferComponent } from './details-offer/details-offer.component';
     MatNativeDateModule,
     MatFormFieldModule,
     MatInputModule,
-    NgImageSliderModule
+    NgImageSliderModule  
   ],
   providers: [],
   bootstrap: [AppComponent]

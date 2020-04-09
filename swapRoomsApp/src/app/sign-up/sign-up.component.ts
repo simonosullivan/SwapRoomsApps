@@ -19,17 +19,7 @@ export class SignUpComponent implements OnInit {
   constructor(private fb : FormBuilder, private apiService: UserCredentialsService, private router: Router) { }
 
   ngOnInit() {
-    // if signed in, there will be a token
-    this.token = window.localStorage.getItem('token');
-
-    // if not signed in, redirected to login page
-    if(!this.token){
-      this.router.navigate(['Login']);
-    } 
-
-
-
-
+  
     this.addForm = this.fb.group({
      email: ['', Validators.required, Validators.email],
      password: ['', Validators.required],

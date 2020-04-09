@@ -8,6 +8,9 @@ import {EditAccountComponent} from './edit-account/edit-account.component';
 import {CreateOfferComponent} from './create-offer/create-offer.component';
 import {ViewOfferComponent} from './view-offer/view-offer.component';
 import {DetailsOfferComponent} from './details-offer/details-offer.component';
+import {NotificationCentreComponent} from './notification-centre/notification-centre.component';
+import {ViewDetailOfferComponent} from './view-detail-offer/view-detail-offer.component';
+import {SetUpAccountComponent} from './set-up-account/set-up-account.component';
 
 const routes: Routes = [
   { path: '', component: OpeningPageComponent },  // sign up will be home page
@@ -17,7 +20,10 @@ const routes: Routes = [
   {path: 'editAccount', component: EditAccountComponent},
   {path: 'createOffer', component: CreateOfferComponent},
   {path: 'viewOffer', component: ViewOfferComponent},
-  {path: 'detailedOffer/:email', component: DetailsOfferComponent}
+  {path: 'detailedOffer/:id/:offerId', component: DetailsOfferComponent},
+  {path: 'Notifications', component: NotificationCentreComponent},
+  {path: 'viewDetailOffer/:email/:offerId', component: ViewDetailOfferComponent},
+  {path: 'setUpAccount', component: SetUpAccountComponent}
   
 ];
 
@@ -27,4 +33,5 @@ const routes: Routes = [
 })
 export class AppRoutingModule { }
 export const routingComponents = [OpeningPageComponent, LoginComponent, SignUpComponent, 
-  AccountComponent, EditAccountComponent, CreateOfferComponent, ViewOfferComponent, DetailsOfferComponent]
+  AccountComponent, EditAccountComponent, CreateOfferComponent, ViewOfferComponent, DetailsOfferComponent,
+   NotificationCentreComponent, ViewDetailOfferComponent, SetUpAccountComponent]

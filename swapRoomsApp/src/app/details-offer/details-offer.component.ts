@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { UserCredentialsService } from '../services/UserCredentialsService';
 import {Router, Params, ActivatedRoute} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import { ApiResponseComponent } from '../Model/api-response/api-response.component';
 
 @Component({
   selector: 'app-details-offer',
@@ -24,6 +23,8 @@ export class DetailsOfferComponent implements OnInit {
   routeParams: Params;
   offer: any;
   imageObject: Array<Object>;
+  userId: string;
+  rmId: any;
 
   constructor(private apiService: UserCredentialsService, private fb : FormBuilder, 
     private router: Router, private routes:ActivatedRoute) { }
@@ -38,18 +39,26 @@ export class DetailsOfferComponent implements OnInit {
      } 
 
     this.routeParams = this.routes.snapshot.params;
+    console.log(this.routeParams.id);
  
      // Get signed in email for all services
      this.email = window.localStorage.getItem('email');
+     this.userId = window.localStorage.getItem('userId');
  
     
  
-     this.apiService.getOfferDetails(this.email).subscribe((data:any)=>{
+     this.apiService.getOfferDetails(this.userId).subscribe((data:any)=>{
        this.offers = data;
 
        for(let i=0; i<this.offers.length; i++){
-        if(this.routeParams.email == this.offers[i].email){
+        if(this.routeParams.id == this.offers[i].userId){
          this.offer = this.offers[i];
+
+          // gets info from amenities table in db
+        this.apiService.getAmenities(this.offer.rmId).subscribe((data:any)=>{
+          // display info on screen when comes back
+          this.amenities = data[0];  
+        });
 
          // Image list
          this.imageObject = [{
@@ -88,22 +97,20 @@ export class DetailsOfferComponent implements OnInit {
       }
      });
 
-     // gets info from amenities table in db
-    this.apiService.getAmenities(this.routeParams.email).subscribe((data:any)=>{
-      // display info on screen when comes back
-      this.amenities = data;  
-    });
+  
+        
+
+    
  
   }
 
   
   acceptOffer(){
-    console.log("in acceptOffer method");
-    // gets info from amenities table in db
-    this.apiService.changeStatusOffer(this.routeParams.email).subscribe((data:any)=>{
-      // display info on screen when comes back
-      this.message = data.message;  
-      console.log(this.message);
+    this.apiService.changeStatusOffer(this.routeParams.id, "accept", this.email, this.routeParams.offerId).subscribe((data:any)=>{
+      this.message = data.message; 
+      if(this.message != "Failed"){
+        this.router.navigate(['viewOffer']);
+      }
     });
   }
 

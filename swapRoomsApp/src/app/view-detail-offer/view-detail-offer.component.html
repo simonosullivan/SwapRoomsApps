@@ -1,0 +1,283 @@
+<div class="background">
+
+  <div class="container">
+    
+    <div class="card border-dark mb-3 styleCard"  >
+      <ng-image-slider [images]="imageObject" #nav></ng-image-slider>
+      
+      <div class="card-body">
+        <div class="card " >
+          <div class="card-header bg-info">Personal</div>
+          <div class="card-body">
+    
+            <div class="row">
+              <div class="col-md-6" >
+                <label>First Name</label>
+              </div>
+              <div class="col-md-6" >
+                <p>{{user.fname}}</p>
+              </div>
+            </div>
+    
+            <div class="row">
+              <div class="col-md-6">
+                <label>Last Name</label>
+              </div>
+              <div class="col-md-6" >
+                <p>{{user.lname}}</p>
+              </div>
+            </div>
+    
+            <div class="row">
+              <div class="col-md-6">
+                <label>Email</label>
+              </div>
+              <div class="col-md-6" >
+                <p>{{user.email}}</p>
+              </div>
+            </div>
+    
+            <!-- <div class="row">
+              <div class="col-md-6" >
+                <label>Preferred Email</label>
+              </div>
+              <div class="col-md-6" >
+                <p>{{u.preferEmail}}</p>
+              </div>
+            </div> -->
+          </div>
+        </div>
+    
+        <div class="card "  >
+          <div class="card-header bg-info">Room Details</div>
+          <div class="card-body">
+    
+            <div class="row">
+              <div class="col-md-6">
+                <label>Room Title</label>
+              </div>
+              <div class="col-md-6" >
+                <p>{{room.titleRm}}</p>
+              </div>
+            </div>
+    
+            <div class="row">
+              <div class="col-md-6" >
+                <label>Description</label>
+              </div>
+              <div class="col-md-6" >
+                <p>{{room.descripRm}}</p>
+              </div>
+            </div>
+    
+            <!-- <div class="row">
+              <div class="col-md-6">
+                <label>Address</label>
+              </div>
+              <div class="col-md-6">
+                <p>{{room.addrRm}}</p>
+              </div>
+            </div> -->
+    
+            <div class="row">
+              <div class="col-md-6">
+                <label>County</label>
+              </div>
+              <div class="col-md-6" >
+                <p>{{room.county}}</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        
+
+
+        <div class="card "   >
+          <div class="card-header bg-info">Amenities</div>
+          <div class="card-body" >
+    
+            <div class="row">
+              
+              <div class="col-md-12" [hidden]="amenities.wifi == '0'">
+                <p>Wifi</p>
+              </div>
+            </div>
+    
+            <div class="row">
+              
+              <div class="col-md-12" [hidden]="amenities.cableTv == '0'">
+                <p>Cable TV</p>
+              </div>
+            </div>
+    
+            <div class="row">
+              
+              <div class="col-md-12" [hidden]="amenities.iron == '0'">
+                <p>Iron</p>
+              </div>
+            </div>
+    
+            <div class="row">
+              <div class="col-md-12" [hidden]="amenities.tv == '0'">
+                <p>TV</p>
+              </div>
+            </div>
+    
+            <div class="row">
+              <div class="col-md-12" [hidden]="amenities.essentials == '0'">
+                <p>Essentials</p>
+              </div>
+            </div>
+    
+            
+    
+            <div class="row">
+              <div class="col-md-12" >
+                <button type="button" class="btn btn-info pointerCursor" (click)="isHidden = !isHidden">See all Amenities</button> 
+                <div [hidden]="isHidden">
+                  
+                  <div class="row">
+                    
+                    <div class="col-md-12" [hidden]="amenities.washingMachine == '0'">
+                      <p>Washing Machine</p>
+                    </div>
+                  </div>
+          
+                  <div class="row">
+                    <div class="col-md-12" [hidden]="amenities.heating == '0'">
+                      <p>Heating</p>
+                    </div>
+                  </div>
+          
+                  <div class="row">
+                    <div class="col-md-12" [hidden]="amenities.laptopWorkspace == '0'">
+                      <p>Laptop Friendly Workspace</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    
+                    <div class="col-md-12" [hidden]="amenities.hotWater == '0'">
+                      <p>Hot Water</p>
+                    </div>
+                  </div>
+          
+                  <div class="row">
+                    <div class="col-md-12" [hidden]="amenities.FreeParking == '0'">
+                      <p>Free Parking</p>
+                    </div>
+                  </div>
+          
+                  <div class="row">
+                    <div class="col-md-12" [hidden]="amenities.kitchen == '0'">
+                      <p>Kitchen</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    
+                    <div class="col-md-12" [hidden]="amenities.stove == '0'">
+                      <p>Stove</p>
+                    </div>
+                  </div>
+          
+                  <div class="row">
+                    <div class="col-md-12" [hidden]="amenities.microwave == '0'">
+                      <p>Microwave</p>
+                    </div>
+                  </div>
+          
+                  <div class="row">
+                    <div class="col-md-12" [hidden]="amenities.cookingBasics == '0'">
+                      <p>Cooking Basics</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    
+                    <div class="col-md-12" [hidden]="amenities.refridgerator == '0'">
+                      <p>Refridgerator</p>
+                    </div>
+                  </div>
+          
+                  <div class="row">
+                    <div class="col-md-12" [hidden]="amenities.dishesSilverware == '0'">
+                      <p>Dishes & Silverware</p>
+                    </div>
+                  </div>
+          
+                  <div class="row">
+                    <div class="col-md-12" [hidden]="amenities.smartLock == '0'">
+                      <p>Smart Lock</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    
+                    <div class="col-md-12" [hidden]="amenities.shampoo == '0'">
+                      <p>Shampoo</p>
+                    </div>
+                  </div>
+          
+                  <div class="row">
+                    <div class="col-md-12" [hidden]="amenities.hairDryer == '0'">
+                      <p>Hair Dryer</p>
+                    </div>
+                  </div>
+          
+                  <div class="row">
+                    <div class="col-md-12" [hidden]="amenities.hangers == '0'">
+                      <p>Hangers</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    
+                    <div class="col-md-12" [hidden]="amenities.entirePlace == '0'">
+                      <p>Entire Place</p>
+                    </div>
+                  </div>
+          
+                  <div class="row">
+                    <div class="col-md-12" [hidden]="amenities.privateRoom == '0'">
+                      <p>Private Room</p>
+                    </div>
+                  </div>
+          
+                  <div class="row">
+                    <div class="col-md-12" [hidden]="amenities.sharedRoom == '0'">
+                      <p>Shared Room</p>
+                    </div>
+                  </div>
+          
+                  <div class="row">
+                    
+                    
+                    <div class="col-md-12" [hidden]="amenities.doubleBed == '0'">
+                      <p>Double Bed</p>
+                    </div>
+                  </div>
+          
+                  <div class="row">
+                    <div class="col-md-12" [hidden]="amenities.singleBed == '0'">
+                      <p>Single Bed</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div> 
+          
+            
+            
+          </div>
+        </div>
+        
+        <br>
+        
+        <a class="btn btn-success acceptBtn" (click)="acceptOffer()">Accept</a>
+        <a class="btn btn-danger rejectBtn" (click)="rejectOffer()">Reject</a>
+        <br>
+
+        <h3 *ngIf="message">{{message}}</h3>
+      </div>
+    </div>
+  </div>
+</div>
+

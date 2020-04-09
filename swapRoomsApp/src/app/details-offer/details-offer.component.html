@@ -76,35 +76,35 @@
         </div>
 
 
-        <div class="row" *ngFor="let a of amenities">
+        <div class="row" >
           <div class="col-md-12" >
             <h5>Amenities</h5>
             <div class="row" >
-              <div class="col-md-12" [hidden]="a.wifi == '0'">
+              <div class="col-md-12" [hidden]="amenities.wifi == '0'">
                 <p>Wifi</p>
               </div>
             </div>
 
             <div class="row">
-              <div class="col-md-12" [hidden]="a.cableTV == '0'">
+              <div class="col-md-12" [hidden]="amenities.cableTv == '0'">
                 <p>Cable TV</p>
               </div>
             </div>
 
             <div class="row">
-              <div class="col-md-12" [hidden]="a.iron == '0'">
+              <div class="col-md-12" [hidden]="amenities.iron == '0'">
                 <p>Iron</p>
               </div>
             </div>
 
             <div class="row">
-              <div class="col-md-12" [hidden]="a.tv == '0'">
+              <div class="col-md-12" [hidden]="amenities.tv == '0'">
                 <p>TV</p>
               </div>
             </div>
 
             <div class="row">
-              <div class="col-md-12" [hidden]="a.essentials == '0'">
+              <div class="col-md-12" [hidden]="amenities.essentials == '0'">
                 <p>Essentials</p>
               </div>
             </div>
@@ -113,121 +113,121 @@
             <div [hidden]="isHidden">
               
               <div class="row">
-                <div class="col-md-12" [hidden]="a.washingMachine == '0'">
+                <div class="col-md-12" [hidden]="amenities.washingMachine == '0'">
                   <p>Washing Machine</p>
                 </div>
               </div>
       
               <div class="row">
-                <div class="col-md-12" [hidden]="a.heating == '0'">
+                <div class="col-md-12" [hidden]="amenities.heating == '0'">
                   <p>Heating</p>
                 </div>
               </div>
       
               <div class="row">
-                <div class="col-md-12" [hidden]="a.laptopWorkspace == '0'">
+                <div class="col-md-12" [hidden]="amenities.laptopWorkspace == '0'">
                   <p>Laptop Friendly Workspace</p>
                 </div>
               </div>
               <div class="row">
                 
-                <div class="col-md-12" [hidden]="a.hotWater == '0'">
+                <div class="col-md-12" [hidden]="amenities.hotWater == '0'">
                   <p>Hot Water</p>
                 </div>
               </div>
       
               <div class="row">
-                <div class="col-md-12" [hidden]="a.freeParking == '0'">
+                <div class="col-md-12" [hidden]="amenities.freeParking == '0'">
                   <p>Free Parking</p>
                 </div>
               </div>
       
               <div class="row">
-                <div class="col-md-12" [hidden]="a.kitchen == '0'">
+                <div class="col-md-12" [hidden]="amenities.kitchen == '0'">
                   <p>Kitchen</p>
                 </div>
               </div>
               <div class="row">
                 
-                <div class="col-md-12" [hidden]="a.stove == '0'">
+                <div class="col-md-12" [hidden]="amenities.stove == '0'">
                   <p>Stove</p>
                 </div>
               </div>
       
               <div class="row">
-                <div class="col-md-12" [hidden]="a.microwave == '0'">
+                <div class="col-md-12" [hidden]="amenities.microwave == '0'">
                   <p>Microwave</p>
                 </div>
               </div>
       
               <div class="row">
-                <div class="col-md-12" [hidden]="a.cookingBasics == '0'">
+                <div class="col-md-12" [hidden]="amenities.cookingBasics == '0'">
                   <p>Cooking Basics</p>
                 </div>
               </div>
               <div class="row">
                 
-                <div class="col-md-12" [hidden]="a.refridgerator == '0'">
+                <div class="col-md-12" [hidden]="amenities.refridgerator == '0'">
                   <p>Refridgerator</p>
                 </div>
               </div>
       
               <div class="row">
-                <div class="col-md-12" [hidden]="a.dishesSilverware == '0'">
+                <div class="col-md-12" [hidden]="amenities.dishesSilverware == '0'">
                   <p>Dishes & Silverware</p>
                 </div>
               </div>
       
               <div class="row">
-                <div class="col-md-12" [hidden]="a.smartLock == '0'">
+                <div class="col-md-12" [hidden]="amenities.smartLock == '0'">
                   <p>Smart Lock</p>
                 </div>
               </div>
               <div class="row">
                 
-                <div class="col-md-12" [hidden]="a.shampoo == '0'">
+                <div class="col-md-12" [hidden]="amenities.shampoo == '0'">
                   <p>Shampoo</p>
                 </div>
               </div>
       
               <div class="row">
-                <div class="col-md-12" [hidden]="a.hairDryer == '0'">
+                <div class="col-md-12" [hidden]="amenities.hairDryer == '0'">
                   <p>Hair Dryer</p>
                 </div>
               </div>
       
               <div class="row">
-                <div class="col-md-12" [hidden]="a.hangers == '0'">
+                <div class="col-md-12" [hidden]="amenities.hangers == '0'">
                   <p>Hangers</p>
                 </div>
               </div>
               <div class="row">
                 
-                <div class="col-md-12" [hidden]="a.entirePlace == '0'">
+                <div class="col-md-12" [hidden]="amenities.entirePlace == '0'">
                   <p>Entire Place</p>
                 </div>
               </div>
       
               <div class="row">
-                <div class="col-md-12" [hidden]="a.privateRoom == '0'">
+                <div class="col-md-12" [hidden]="amenities.privateRoom == '0'">
                   <p>Private Room</p>
                 </div>
               </div>
       
               <div class="row">
-                <div class="col-md-12" [hidden]="a.sharedRoom == '0'">
+                <div class="col-md-12" [hidden]="amenities.sharedRoom == '0'">
                   <p>Shared Room</p>
                 </div>
               </div>
       
               <div class="row">
-                <div class="col-md-12" [hidden]="a.doubleBed == '0'">
+                <div class="col-md-12" [hidden]="amenities.doubleBed == '0'">
                   <p>Double Bed</p>
                 </div>
               </div>
       
               <div class="row">
-                <div class="col-md-12" [hidden]="a.singleBed == '0'">
+                <div class="col-md-12" [hidden]="amenities.singleBed == '0'">
                   <p>Single Bed</p>
                 </div>
               </div>

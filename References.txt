@@ -3,3 +3,6 @@ CRUD series 			: https://www.youtube.com/playlist?list=PLGt1lxwGVOI40me32bmhBS2k
 Check boxes editAccount 	: https://bootsnipp.com/snippets/Zk2Pz
 use db to check box		: https://stackoverflow.com/questions/49030977/angular-5-html-boolean-on-checkbox-is-checked
 style of checkboxes     : https://bootsnipp.com/snippets/Zk2Pz
+carousel dynamic        : https://stackoverflow.com/questions/58078183/multiple-bootstrap-carousel-single-page-dynamic-ids-via-ngfor-how-to-add-p
+filter offers           : https://www.youtube.com/watch?v=IvASSPQMrUE&list=PL6n9fhu94yhXwcl3a6rIfAI7QmGYIkfK5&index=50
+upload images           : https://www.youtube.com/watch?v=XUqvDF_Sxo4&list=PLGt1lxwGVOI5dVze7sXdbESxJkeFeH42G&index=2

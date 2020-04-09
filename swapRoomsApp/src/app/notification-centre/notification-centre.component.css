@@ -1,0 +1,74 @@
+.background{
+    background-color: aqua;
+    background-image: url(https://i.pinimg.com/originals/05/45/61/054561a91f8c20ee6637be0440e4e119.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding: 50px;
+}
+
+.container{
+    font-size: large;
+    text-align: center;
+    width: 60%;
+    background-color: white;
+    padding: 50px;
+    border-radius: 1%;
+    display: block;
+}
+
+.notifications{
+    width: 80%; 
+    margin: auto; 
+    
+}
+
+
+.card {
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 20px; /* Added */
+}
+
+.heading{
+    text-align: left;
+}
+
+
+
+
+
+.tab-card {
+    border:1px solid #eee;
+  }
+  
+  .tab-card-header {
+    background:none;
+  }
+  /* Default mode */
+  .tab-card-header > .nav-tabs {
+    border: none;
+    margin: 0px;
+  }
+  .tab-card-header > .nav-tabs > li {
+    margin-right: 2px;
+  }
+  .tab-card-header > .nav-tabs > li > a {
+    border: 0;
+    border-bottom:2px solid transparent;
+    margin-right: 0;
+    color: #737373;
+    padding: 2px 15px;
+  }
+  
+  .tab-card-header > .nav-tabs > li > a.show {
+      border-bottom:2px solid #007bff;
+      color: #007bff;
+  }
+  .tab-card-header > .nav-tabs > li > a:hover {
+      color: #007bff;
+  }
+  
+  .tab-card-header > .tab-content {
+    padding-bottom: 0;
+  }
