@@ -67,6 +67,8 @@ export class NotificationCentreComponent implements OnInit {
       // display info on screen when comes back
       this.offers = data;
       this.notify = this.offers;
+      console.log("this.offers");
+      console.log(this.offers);
 
       let openCnt = 0;
       let pendingCnt = 0;
@@ -98,11 +100,13 @@ export class NotificationCentreComponent implements OnInit {
     this.apiService.othersNotifications(this.email).subscribe((data:any)=>{
       // display info on screen when comes back
       this.othersOffers = data;
-      
+      console.log("this.othersOffers");
+      console.log(this.othersOffers);
+
       let openCnt = 0;
       let pendingCnt = 0;
       let closedCnt = 0;
-      console.log(this.offers.length);
+
       for(let i=0; i<this.offers.length; i++){
         
         if(this.othersOffers[i]['status']== "pending"){

@@ -135,24 +135,21 @@ export class SetUpAccountComponent implements OnInit {
    
     this.apiService.uploadImages(sqlImages).subscribe((data:any)=>{
       this.message = data.message;
-      console.log(this.message);
+    
+      const dataForm = {
+        formData : this.editAcc.value,
+        userId: this.user.userId
+      }
+
+      this.apiService.submitAmenities(dataForm).subscribe((data:any) =>{
+        this.message = data.message
+        if(this.message = "Thank You for setting up your account"){
+          this.router.navigate(['Account']);
+        }
+      });
+
     });
-
-
-    const dataForm = {
-      formData : this.editAcc.value,
-      userId: this.user.userId
-    }
-
-    console.log(dataForm);
-
-    this.apiService.submitAmenities(dataForm).subscribe((data:any) =>{
-      this.message = data.message
-      console.log(this.message);
-    });
-    if(this.message != "Failed to set up account"){
-      this.router.navigate(['Account']);
-    }
+    
     
   }
 

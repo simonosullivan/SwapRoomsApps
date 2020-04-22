@@ -1,8 +1,9 @@
 .background{
     background-color: aqua;
-    background-image: url(https://i.pinimg.com/originals/05/45/61/054561a91f8c20ee6637be0440e4e119.jpg);
+    background-image: url('../../assets/images/background.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: bottom;
     background-attachment: fixed;
     padding: 50px;
 }
@@ -36,7 +37,7 @@
 
 
 #text-fields{
-    height: 50px;
+    padding: 1%;
 }
 
 

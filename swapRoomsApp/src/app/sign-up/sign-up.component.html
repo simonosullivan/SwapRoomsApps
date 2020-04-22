@@ -1,38 +1,4 @@
-<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" 
-integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous"> -->
-
 <div class="body">
-  
-  
- <!-- Add to Form Group   -->
- <!-- <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
-
-  <div class="form-group">
-    <label for="username">Email:</label>
-    <input type="text" formControlName="email" placeholder="email"
-      name="email" class="form-control" id="email">
-  </div>
-
-  <div class="form-group">
-    <label for="password">Password:</label>
-    <input type="password" formControlName="password" placeholder="password"
-      name="password" class="form-control" id="password">
-  </div>
-
-  <div class="form-group">
-    <label for="username">Confirm password:</label>
-    <input type="text" formControlName="cpassword" placeholder="Confirm"
-      name="firstName" class="form-control" id="firstName">
-  </div> 
-
-  
-
-
-  <button class="btn bth-success">Sign up</button>
-</form> -->
-
-
-
   <div class="container">
     <div class="card card-container">
         <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
@@ -41,10 +7,7 @@ integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69p
         <form class="form-signin" [formGroup]="addForm" (ngSubmit)="onSubmit()">
 
             <span id="reauth-email" class="reauth-email"></span>
-            
-           
 
-            <!-- <div class="error" *ngIf="email.errors?.pattern && email.touched">Invalid Email address</div> -->
             <div class="error" *ngIf="addForm.controls['email'].hasError('required') &&
             addForm.controls['email'].touched">Please enter an Email address</div>
             
@@ -53,12 +16,12 @@ integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69p
             title="Must include @ with letters, numbers or periods before and 
             after followed by a period and 2-3 letters."  
             required autofocus>
-            
+
             <div class="error" *ngIf="addForm.controls['password'].hasError('required') &&
             addForm.controls['password'].touched">Please enter password</div>
             <input type="password" id="inputPassword" class="form-control" formControlName="password" 
             pattern="^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{6,}$" 
-            title="Password must contain at least one letter, at least one number, and be longer than six charaters."  
+            title="Password must contain at least one letter, at least one number, and be six charaters or longer."  
             placeholder="Password" required>
             
             <div class="error" *ngIf="addForm.controls['cpassword'].hasError('required') &&
@@ -67,8 +30,9 @@ integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69p
             pattern="^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{6,}$" 
             title="Password must contain at least one letter, at least one number, and be longer than six charaters."
             placeholder="Confirm Password" required>
-            
 
+            <p style="color: grey;"><small>Password must contain at least one letter, at least one number, and be six charaters or longer</small></p>
+            
             <div *ngIf="invalidLogin" class="error">
               <div class="danger">Passwords do not match ! Please try again.</div>
             </div>

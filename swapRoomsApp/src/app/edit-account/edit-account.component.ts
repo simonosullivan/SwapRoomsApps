@@ -145,17 +145,9 @@ export class EditAccountComponent implements OnInit {
       sqlImages.append('fileUpload[]', this.myFiles[i]);
     }
 
-    // const sqlImages= ({
-    //   userId: this.userId,
-    //   email : this.email,
-    //   fileUpload : this.myFiles
-    // });
-    // console.log(sqlImages);
    
-    //console.log(sqlImages);
     this.apiService.uploadImages(sqlImages).subscribe((data:any)=>{
       this.message = data.message;
-      //console.log(this.message);
     });
 
 
@@ -166,13 +158,11 @@ export class EditAccountComponent implements OnInit {
       rmId: this.room.rmId
     }
 
-    console.log(dataForm);
-
     this.apiService.editAccInfo(dataForm).subscribe((data:any) =>{
       this.message = data.message
-      console.log(this.message);
+      this.router.navigate(['Account']);
     });
-    this.router.navigate(['Account']);
+    
     
   }
 

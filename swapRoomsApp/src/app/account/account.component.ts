@@ -38,11 +38,11 @@ export class AccountComponent implements OnInit {
       this.router.navigate(['Login']);
     } 
 
-    // Get signed in email for all services
+    // Get signed in email and userId for services
     this.email = window.localStorage.getItem('email');
     this.userId = window.localStorage.getItem('userId');
 
-
+    // Get images for profile pic at top of page
     this.apiService.getImages(this.userId).subscribe((data:any)=>{
       this.offer = data;
       this.image = 'http://35.246.80.226:80/Test_Login_SwapRms/fileUpload/'+this.offer.profPic+'/profPic.png';
@@ -54,16 +54,17 @@ export class AccountComponent implements OnInit {
       // display info on screen when comes back
       this.user = data[0];
 
-      console.log(this.user);
+      // If these attributes are null = first time logging in
       if(this.user.fname == null && this.user.lname == null && this.user.preferEmail == null){
-        this.router.navigate(['setUpAccount']);
+        this.router.navigate(['setUpAccount']); // send to set up account
       }
       
+      // with the userId , can now get room details
       this.apiService.getRoom(this.user.userId).subscribe((data:any)=>{
         // display info on screen when comes back
         this.room = data[0];
 
-        // // gets info from amenities table in db
+        // with room id get amenities
         this.apiService.getAmenities(this.room.rmId).subscribe((data:any)=>{
           // display info on screen when comes back
           this.amenities = data[0];
@@ -72,7 +73,7 @@ export class AccountComponent implements OnInit {
       });
 
   
-    });
+    }); // nest service calls as they are dependent on each other
 
    
 
@@ -86,31 +87,23 @@ export class AccountComponent implements OnInit {
   }
 
   onSubmit(){
-    if(this.changePass.invalid){
+    if(this.changePass.invalid){ // if not filled, its invalid and won't submit
       return;
     }
+
     // get password values from form
     this.password = this.changePass.controls.password.value
     this.verify = this.changePass.controls.verify_password.value
 
     // compare password and verify_password
-    if(this.password == this.verify){
+    if(this.password == this.verify){ // if the same, send to change the password
       const userData = {
         email : this.email,
         password : this.password
       }
 
       this.apiService.changePassword(userData).subscribe((data:any)=>{
-        // 
-        this.message = data.message;
-
-        this.changePass = this.fb.group({
-          password : ['', Validators.required],
-          verify_password : ['', Validators.required]
-        })
-
-
-
+        this.message = data.message; // display on screen so user knows password has changed
       }); 
 
       
@@ -120,20 +113,21 @@ export class AccountComponent implements OnInit {
     }
   }
 
-  edit(){
+  edit(){ 
     this.router.navigate(['editAccount']);
   }
     
 
   // To logout 
-  logout(){
+  logout(){ // remove all items from local storage and redirect to login
     window.localStorage.removeItem('token');
     window.localStorage.removeItem('email');
     window.localStorage.removeItem('userId');
     this.router.navigate(['Login']);
   }
 
-  deleteAccount(){
+  // Use cascade delete in db, delete user and delete in all tables
+  deleteAccount(){ 
     this.apiService.deleteAcc(this.userId).subscribe((data:any)=>{
       this.message = data.message;
 

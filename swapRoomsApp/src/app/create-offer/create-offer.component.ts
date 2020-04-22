@@ -45,17 +45,17 @@ export class CreateOfferComponent implements OnInit {
       this.router.navigate(['Login']);
     } 
 
-    // Get signed in email for all services
+    // Get signed in email and userId for services
     this.email = window.localStorage.getItem('email');
     this.userId = window.localStorage.getItem('userId');
 
+    // Used to grab info from url
     this.routeParams = this.routes.snapshot.params;
 
-
+    // get my offer details by using offerid from url, used to edit existing offer
     this.apiService.getMyOffer(this.routeParams.offerId).subscribe((data:any)=>{
       // display info on screen when comes back
       this.myOffer = data;
-      console.log(this.myOffer);
     });
 
     // Gets info from account table in db
@@ -69,9 +69,6 @@ export class CreateOfferComponent implements OnInit {
       });
     });
 
-
-    
-
     // Creating the form group
     this.createOffer = this.fb.group({
       option1: '',
@@ -81,35 +78,28 @@ export class CreateOfferComponent implements OnInit {
       end: ''
      })
 
-     
-     
-
-     this.today = new Date();
+     // Date validation 
+     this.today = new Date(); // get todays date and split it as returns date and time
      let date = this.today.getDate();
      let dd = (date < 10 ? ('0' + String(date)) : String(date));
      let month = this.today.getMonth()+1;
      let mm = (month < 10 ? ('0' + String(month)) : String(month));
      let yyyy = this.today.getFullYear();
-     let year1 = yyyy+1;
+     let year1 = yyyy+1; // Maximum can book is a year in advance
 
      this.startMinDate = yyyy+"-"+mm+"-"+dd;
      this.today = this.startMinDate;
      this.startMaxDate = year1+"-"+mm+"-"+dd;
-     
+          
 
-
-     //dd = String(Number(dd)+1);
-     
-     this.endMinDate = this.startMinDate;
-    
+     this.endMinDate = this.startMinDate; // date select is the earliest you can leave
      this.endMaxDate = this.startMaxDate;
-     //console.log(this.maxDate);
     
 
   }
 
+  // Used info as it changed in start date to help fix end date 
   onChangeStartDate(event){
-    //console.log(event); startMinDate 2020-04-23
     if(this.myOffer.endDate <= event){
       let datePicked = new Date(event);
       let date = datePicked.getDate()+1;
@@ -121,15 +111,13 @@ export class CreateOfferComponent implements OnInit {
 
       this.myOffer.endDate = yyyy+"-"+mm+"-"+dd;
       this.endMaxDate = year1+"-"+mm+"-"+dd;
-    }
-    
-
-    
+    }  
   }
 
   
 
   onSubmit(){
+    // Only happens if offer is never excepted and user has to change the dates
     if(this.myOffer.startDate < this.today || this.myOffer.endDate < this.today){
       this.message = "One or both of the dates are in the past. Please enter valid dates.";
       return 

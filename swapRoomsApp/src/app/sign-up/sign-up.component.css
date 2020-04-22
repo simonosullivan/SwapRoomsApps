@@ -147,9 +147,10 @@
 }
 
 .body{
-    background-image: url('https://cdn.wallpapersafari.com/68/64/VOsuen.jpg');
+    background-image: url('../../assets/images/background.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: bottom;
     background-attachment: fixed;
     padding: 50px;
 }

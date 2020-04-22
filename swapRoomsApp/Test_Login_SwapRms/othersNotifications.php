@@ -26,11 +26,19 @@ if(isset($_REQUEST['acceptor']) ){
             $userId = $offers[$count]['userId'];
 
             $sqlUser = "SELECT email from user where user.userId = $userId";
+            $sqlImages = "SELECT * from picspath where userId = '$userId' LIMIT 1";
 
             if($result2 =mysqli_query($con, $sqlUser)){
                 //echo "in";
                 while($record2 = mysqli_fetch_assoc($result2)){
                     $offers[$count]['email'] = $record2['email'];
+                }
+            }
+
+            if($result3 =mysqli_query($con, $sqlImages)){
+                //echo "in";
+                while($record3 = mysqli_fetch_assoc($result3)){
+                    $offers[$count]['pathToImages'] = $record3['pathToImages'];
                 }
             }
 
@@ -48,7 +56,7 @@ if(isset($_REQUEST['acceptor']) ){
         //print_r($offers);
     
         
-        echo json_encode($offers);
+        echo json_encode($offers, JSON_UNESCAPED_SLASHES);
     
     }else{
         echo json_encode(array("message"=> "failed query "));

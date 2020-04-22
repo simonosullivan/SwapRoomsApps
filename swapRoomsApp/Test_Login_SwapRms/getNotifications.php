@@ -21,32 +21,33 @@ if(isset($_REQUEST['id']) ){
     
 
     if($result = mysqli_query($con, $sql)){
+        
         $count = 0;
-		
 
         while($record = mysqli_fetch_assoc($result)){
             $offers[$count]['offerId'] = $record['offerId'];
             $offers[$count]['userId'] = $record['userId'];
             $offers[$count]['status'] = $record['status'];
             $offers[$count]['acceptor'] = $record['acceptor'];
-            
-			if($offers[$count]['acceptor'] != ""){
-				$acceptor = $offers[$count]['acceptor'];
-				$sqlacc= "SELECT userId from user where email = '$acceptor' ";
-				if($result1 = mysqli_query($con, $sqlacc)){
-					while($record = mysqli_fetch_assoc($result1)){
-						$offers[$count]['acceptorId'] = $record['userId'];
-					}
-				}
-				$id = $offers[$count]['acceptorId'];
-				$sqlImages= "SELECT * from picspath where userId = $id ";
-				if($result2 = mysqli_query($con, $sqlImages)){
-					while($record = mysqli_fetch_assoc($result2)){
-						$offers[$count]['pathToImages'] = $record['pathToImages'];
-					}
-				}
-			
-			}
+
+            if($offers[$count]['acceptor'] != null){
+                $acceptor = $offers[$count]['acceptor'];
+                $sqlacc= "SELECT userId from user where email = '$acceptor' LIMIT 1";
+               
+                if($result = mysqli_query($con, $sqlacc)){
+                    while($record = mysqli_fetch_assoc($result)){
+                        $offers[$count]['acceptorId'] = $record['userId']; 
+                    }
+                }
+                $id = $offers[$count]['acceptorId'];
+                $sqlImages= "SELECT * from picspath where userId = $id LIMIT 1";
+
+                if($result1 = mysqli_query($con, $sqlImages)){
+                    while($record = mysqli_fetch_assoc($result1)){
+                        $offers[$count]['pathToImages'] = $record['pathToImages'];
+                    }
+                }
+            }
 
             if($offers[$count]['status'] == 'open'){
                 $offers[$count]['message'] = "Your offer is still open. It will move to Pending offers when someone has accepted your offer.";
@@ -61,6 +62,7 @@ if(isset($_REQUEST['id']) ){
             
             $count++;
         }
+        //print_r($offers);
     
         
 

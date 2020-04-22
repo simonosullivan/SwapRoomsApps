@@ -50,7 +50,7 @@ export class SignUpComponent implements OnInit {
         this.apiService.createUser(this.addForm.value)
         .subscribe(data=>{
           // once added, user gets redirect to home page
-          this.router.navigate(['/']);
+          this.router.navigate(['Login']);
         })
       }else{
         this.invalidLogin = true;

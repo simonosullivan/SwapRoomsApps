@@ -9,8 +9,7 @@ require '../connect.php';
 
 $userId = $_REQUEST['userId'];
 $email = $_REQUEST['email'];
-print_r($email);
-print_r($_FILES);
+
 
 
 $target_dir = "upload/$email/";
@@ -51,7 +50,6 @@ $sql = "INSERT INTO picspath (
     '{$target_dir}'
     )";
 
-    print_r($sql);
 
 if(mysqli_query($con, $sql)){ 
     // send http code if successful
