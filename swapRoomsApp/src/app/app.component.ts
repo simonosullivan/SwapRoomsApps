@@ -11,12 +11,17 @@ export class AppComponent implements OnInit{
   offer: any;
   image: string;
   userId: string;
+  token: string;
 
   constructor(private apiService: UserCredentialsService){
     
   }
 
   ngOnInit() {
+
+    // if signed in, there will be a token
+    this.token = window.localStorage.getItem('token');
+    
       // Get signed in email for all services
       this.userId = window.localStorage.getItem('userId');
           

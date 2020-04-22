@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserCredentialsService } from '../services/UserCredentialsService';
 import {Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { empty } from 'rxjs';
 
 @Component({
   selector: 'app-edit-account',
@@ -117,6 +118,9 @@ export class EditAccountComponent implements OnInit {
     for(let i=0; i < (event.target.files.length); i++){
        this.myFiles[i+1] = event.target.files[i];
     }
+    if(this.myFiles[0] == null){
+      this.myFiles[0]= null;
+    }
 
     console.log(this.myFiles);
     
@@ -124,6 +128,9 @@ export class EditAccountComponent implements OnInit {
 
   profPicSelect(event){
     this.myFiles[0] = event.target.files[0];
+    if(this.myFiles == null){
+      console.log("null");
+    }
   }
 
   onSubmit(){
@@ -132,15 +139,23 @@ export class EditAccountComponent implements OnInit {
 
     sqlImages.append('userId', this.userId);
     sqlImages.append('email', this.email);
-    sqlImages.append('fileUpload[]', this.profPic);
+    sqlImages.append('fileUpload[]', this.myFiles[0]);
 
-    for(let i=0; i < this.myFiles.length; i++){
+    for(let i=1; i < this.myFiles.length; i++){
       sqlImages.append('fileUpload[]', this.myFiles[i]);
     }
+
+    // const sqlImages= ({
+    //   userId: this.userId,
+    //   email : this.email,
+    //   fileUpload : this.myFiles
+    // });
+    // console.log(sqlImages);
    
+    //console.log(sqlImages);
     this.apiService.uploadImages(sqlImages).subscribe((data:any)=>{
       this.message = data.message;
-      console.log(this.message);
+      //console.log(this.message);
     });
 
 

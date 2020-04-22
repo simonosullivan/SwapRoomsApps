@@ -15,7 +15,7 @@
     <div class="row">
       <div class="col-sm-12">
         <div>
-          <img class="profPic" src={{image}}  class="rounded-circle">
+          <img class="profPic" src={{image}} class="rounded-circle z-depth-0" style="height: 25%; width: 25%;">
         </div>
       </div>
     </div>
@@ -296,9 +296,11 @@
             <div class="col-md-6">
               <label>New Password</label>
             </div>
+            
             <div class="col-md-6">
               <input type="password" formControlName="password" placeholder="password"
-                name="password" class="form-control" id="password">
+                name="password" class="form-control" id="password"
+                pattern="^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{6,}$" required>
             </div>
           </div>
 
@@ -308,13 +310,14 @@
             </div>
             <div class="col-md-6">
               <input type="password" formControlName="verify_password" placeholder="verify password"
-                name="verify_password" class="form-control" id="verify_password">
+                name="verify_password" class="form-control" id="verify_password"
+                pattern="^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{6,}$" required>
             </div>
           </div> 
 
           <div class="row" style="height: 50px; ">
             <div class="col-md-12">
-              <button type="submit" class="btn btn-success">Change</button>
+              <button type="submit" class="btn btn-success" [disabled]="changePass.invalid">Change</button>
             </div>
           </div> 
 
@@ -344,12 +347,35 @@
 
         <div class="row" style="height: 50px; ">
           <div class="col-md-12">
-            <button (click)="deleteAccount()" class="btn btn-outline-danger"><b>Delete</b></button>
+            <button (click)="show = !show"class="btn btn-outline-danger"><b>Delete</b></button>
           </div>
         </div> 
+
+        <div [hidden]="show">
+          <div class="row" style="margin-top: 50px;">
+            <div class="col-md-12">
+            <p>
+              <b>Are You Sure ?</b>
+            </p>
+            </div>
+          </div>
+
+          <div class="row" style="height: 50px; ">
+            <div class="col-md-12">
+              <button (click)="deleteAccount()"class="btn btn-outline-danger" style="margin-right: 3%;"><b>Yes</b></button>
+              <button (click)="show = true"class="btn btn-outline-success" style="margin-left: 3%;"><b>No</b></button>
+            </div>
+          </div> 
+
+        </div>
+
         
+
       </div>
     </div>
+
+
+        
 
 
   </div>

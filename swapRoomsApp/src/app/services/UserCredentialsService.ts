@@ -60,13 +60,15 @@ export class UserCredentialsService {
     return this.http.post<ApiResponseComponent>(this.url + 'createOffer.php', offerData);
   }
 
-  //Create Offer
+  getMyOffer(offerId): Observable<ApiResponseComponent[]> {
+    return this.http.get<ApiResponseComponent[]>(this.url+ 'getMyOffer.php?id='+offerId);
+  }
+
   uploadImages(sqlImages) : Observable<ApiResponseComponent>{
     console.log(sqlImages);
     return this.http.post<ApiResponseComponent>(this.url + 'fileUpload/uploadImages.php', sqlImages);
   }
 
-  // get county
   getOfferDetails(userId): Observable<ApiResponseComponent[]> {
     return this.http.get<ApiResponseComponent[]>(this.url+ 'getOfferDetails.php?id='+userId);
   }

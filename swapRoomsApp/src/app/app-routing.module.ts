@@ -23,7 +23,8 @@ const routes: Routes = [
   {path: 'detailedOffer/:id/:offerId', component: DetailsOfferComponent},
   {path: 'Notifications', component: NotificationCentreComponent},
   {path: 'viewDetailOffer/:email/:offerId', component: ViewDetailOfferComponent},
-  {path: 'setUpAccount', component: SetUpAccountComponent}
+  {path: 'setUpAccount', component: SetUpAccountComponent},
+  {path: 'createOffer/:offerId', component: CreateOfferComponent}
   
 ];
 

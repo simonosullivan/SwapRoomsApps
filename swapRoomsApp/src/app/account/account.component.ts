@@ -4,7 +4,6 @@ import {Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 
-
 @Component({
   selector: 'app-account',
   templateUrl: './account.component.html',
@@ -26,6 +25,7 @@ export class AccountComponent implements OnInit {
   userId: string;
   offer: any;
   image: string;
+  show = true;
   constructor(private apiService: UserCredentialsService, private fb : FormBuilder, private router: Router) { }
 
   ngOnInit() {
@@ -86,6 +86,9 @@ export class AccountComponent implements OnInit {
   }
 
   onSubmit(){
+    if(this.changePass.invalid){
+      return;
+    }
     // get password values from form
     this.password = this.changePass.controls.password.value
     this.verify = this.changePass.controls.verify_password.value
@@ -131,7 +134,6 @@ export class AccountComponent implements OnInit {
   }
 
   deleteAccount(){
-    console.log(this.userId);
     this.apiService.deleteAcc(this.userId).subscribe((data:any)=>{
       this.message = data.message;
 

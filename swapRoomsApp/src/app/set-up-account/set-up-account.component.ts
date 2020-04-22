@@ -21,8 +21,10 @@ export class SetUpAccountComponent implements OnInit {
   county: any;
   checked : any = false;
   previousCounty : any;
-  myFiles: any;
+  myFiles: any[]=[];
   room: any;
+  profPic: string | Blob;
+  userId: string;
 
   constructor(private apiService: UserCredentialsService, private fb : FormBuilder, private router: Router) { }
 
@@ -38,7 +40,8 @@ export class SetUpAccountComponent implements OnInit {
 
     // Get signed in email for all services
     this.email = window.localStorage.getItem('email');
-
+    this.userId = window.localStorage.getItem('userId');
+    
     // Gets info from account table in db
     this.apiService.getAccInfo(this.email).subscribe((data:any)=>{
       // display info on screen when comes back
@@ -102,39 +105,38 @@ export class SetUpAccountComponent implements OnInit {
   
 
   onFileSelect(event){
+    for(let i=0; i < (event.target.files.length); i++){
+       this.myFiles[i+1] = event.target.files[i];
+    }
 
-    if(this.editAcc.invalid){
-      return;
-    }
-    
-    for(let i=1; i <= (event.target.files.length); i++){
-       this.myFiles.push(event.target.files[i]);
-    }
     console.log(this.myFiles);
+    
   }
 
   profPicSelect(event){
-    this.myFiles.push(event.target.files[0]);
+    this.myFiles[0] = event.target.files[0];
   }
 
   onSubmit(){
 
-    // const sqlImages = new FormData();
+    if(this.editAcc.invalid){
+      return;
+    }
 
-    // sqlImages.append('email', this.email);
-    // sqlImages.append('fileUpload[]', this.myFiles[0]);
+    const sqlImages = new FormData();
 
-    // for(let i=1; i <= this.myFiles.length; i++){
-    //   sqlImages.append('fileUpload[]', this.myFiles[i]);
-    // }
+    sqlImages.append('userId', this.userId);
+    sqlImages.append('email', this.email);
+    sqlImages.append('fileUpload[]', this.profPic);
 
-    // console.log(sqlImages);
-    
-    // this.apiService.uploadImages(sqlImages).subscribe((data:any)=>{
-    //   this.message = data.message;
-    //   console.log(this.message);
-    // });
-
+    for(let i=0; i < this.myFiles.length; i++){
+      sqlImages.append('fileUpload[]', this.myFiles[i]);
+    }
+   
+    this.apiService.uploadImages(sqlImages).subscribe((data:any)=>{
+      this.message = data.message;
+      console.log(this.message);
+    });
 
 
     const dataForm = {

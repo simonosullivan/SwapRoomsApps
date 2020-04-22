@@ -42,22 +42,36 @@ integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69p
 
             <span id="reauth-email" class="reauth-email"></span>
             
-            <!-- <div class="error" *ngIf="loginForm.controls['username'].hasError('required') &&
-            loginForm.controls['username'].touched">Please enter a username</div> -->
-            <input type="email" id="inputEmail" class="form-control" formControlName="email" autocomplete="on" placeholder="Email address" required autofocus>
+           
+
+            <!-- <div class="error" *ngIf="email.errors?.pattern && email.touched">Invalid Email address</div> -->
+            <div class="error" *ngIf="addForm.controls['email'].hasError('required') &&
+            addForm.controls['email'].touched">Please enter an Email address</div>
             
-            <!-- <div class="error" *ngIf="loginForm.controls['password'].hasError('required') &&
-            loginForm.controls['password'].touched">Please enter password</div> -->
-            <input type="password" id="inputPassword" class="form-control" formControlName="password" placeholder="Password" required>
+            <input type="text" id="inputEmail" class="form-control" formControlName="email" autocomplete="on" placeholder="Email address" 
+            pattern="^\w+[\w-\.]*\@\w+((-\w+)|(\w*))\.[a-z]{2,3}$" 
+            title="Must include @ with letters, numbers or periods before and 
+            after followed by a period and 2-3 letters."  
+            required autofocus>
             
-            <!-- <div class="error" *ngIf="loginForm.controls['password'].hasError('required') &&
-            loginForm.controls['password'].touched">Please confirm password</div> -->
-            <input type="password" id="inputPassword" class="form-control" formControlName="cpassword" placeholder="Confirm Password" required>
+            <div class="error" *ngIf="addForm.controls['password'].hasError('required') &&
+            addForm.controls['password'].touched">Please enter password</div>
+            <input type="password" id="inputPassword" class="form-control" formControlName="password" 
+            pattern="^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{6,}$" 
+            title="Password must contain at least one letter, at least one number, and be longer than six charaters."  
+            placeholder="Password" required>
+            
+            <div class="error" *ngIf="addForm.controls['cpassword'].hasError('required') &&
+            addForm.controls['cpassword'].touched">Please confirm your password</div>
+            <input type="password" id="inputPassword" class="form-control" formControlName="cpassword" 
+            pattern="^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{6,}$" 
+            title="Password must contain at least one letter, at least one number, and be longer than six charaters."
+            placeholder="Confirm Password" required>
             
 
-            <!-- <div *ngIf="invalidLogin" class="error">
-              <div class="danger">Passwords do not match! Please try again.</div>
-            </div> -->
+            <div *ngIf="invalidLogin" class="error">
+              <div class="danger">Passwords do not match ! Please try again.</div>
+            </div>
 
             
             <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" >Sign Up</button>

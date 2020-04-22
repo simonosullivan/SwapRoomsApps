@@ -129,3 +129,18 @@
 
 
 
+
+.error{
+  color: red;
+  font-size: small;
+  margin-left: 2%;
+}
+
+.errorAddr{
+  color: red;
+  font-size: small;
+  margin-left: 52%;
+}
+
+
+

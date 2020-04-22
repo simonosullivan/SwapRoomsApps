@@ -78,7 +78,7 @@
             </div>
             <div class="col-md-6">
               <input type="text"  formControlName="option1" placeholder="Option #1"
-                name="option1" class="form-control" id="option1">
+                name="option1" class="form-control" id="option1" [(ngModel)]="myOffer.option1">
             </div>
           </div>
 
@@ -86,7 +86,7 @@
             <div class="col-md-6"></div>
             <div class="col-md-6">
               <input type="text"  formControlName="option2" placeholder="Option #2"
-                name="option2" class="form-control" id="option2">
+                name="option2" class="form-control" id="option2" [(ngModel)]="myOffer.option2">
             </div>
           </div>
 
@@ -94,7 +94,7 @@
             <div class="col-md-6"></div>
             <div class="col-md-6">
               <input type="text"  formControlName="option3" placeholder="Option #3"
-                name="option3" class="form-control" id="option3">
+                name="option3" class="form-control" id="option3" [(ngModel)]="myOffer.option3">
             </div>
           </div>
   
@@ -111,7 +111,8 @@
             </div>
             <div class="col-md-6">
               <input type="date"  formControlName="start" placeholder="Start date"
-                name="start" class="form-control" id="start">
+                name="start" class="form-control" id="start" 
+                [(ngModel)]="myOffer.startDate" (ngModelChange)="onChangeStartDate(myOffer.startDate)" min="{{today}}" max="{{startMaxDate}}">
             </div>
           </div>
 
@@ -121,7 +122,8 @@
             </div>
             <div class="col-md-6">
               <input type="date"  formControlName="end" placeholder="End date"
-                name="end" class="form-control" id="end">
+                name="end" class="form-control" id="end" 
+                [(ngModel)]="myOffer.endDate"  min="{{myOffer.startDate}}" max="{{endMaxDate}}">
             </div>
           </div>
   
@@ -143,6 +145,13 @@
               <button type="submit" class="btn btn-success">Submit</button>
             </div>
           </div> 
+
+          <div class="row" style="color: red; font-size: small;">
+            <div class="col-md-12" *ngIf="message">
+              <p>{{message}}</p>
+            </div>
+          </div> 
+          
           
         </div>
       </div>

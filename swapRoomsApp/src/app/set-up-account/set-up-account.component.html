@@ -2,8 +2,13 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     
-    <title>Hello, world!</title>
   </head>
   <body>
     
@@ -53,6 +58,11 @@
         <div class="card-header bg-info">Personal</div>
         <div class="card-body">
 
+          <div class="row">
+            <div class="col-md-6"></div>
+            <div class="error" *ngIf="editAcc.controls['fname'].hasError('required') &&
+            editAcc.controls['fname'].touched">Please Enter a First Name</div>
+          </div>
           <div class="row" id="text-fields">
             <div class="col-md-6" >
               <label>First Name</label>
@@ -62,8 +72,13 @@
                 name="fname" class="form-control" id="fname" required>
             </div>
           </div>
+          
         
-
+          <div class="row">
+            <div class="col-md-6"></div>
+            <div class="error" *ngIf="editAcc.controls['lname'].hasError('required') &&
+            editAcc.controls['lname'].touched">Please Enter a Last Name</div>
+          </div>
           <div class="row" id="text-fields">
             <div class="col-md-6">
               <label>Last Name</label>
@@ -80,17 +95,24 @@
             </div>
             <div class="col-md-6" >
               <input type="email" [(ngModel)]="user.email" formControlName="email" placeholder="Email"
-                name="email" class="form-control" id="email">
+                name="email" class="form-control" id="email" disabled>
             </div>
           </div>
 
+          <div class="row">
+            <div class="col-md-6"></div>
+            <div class="error" *ngIf="editAcc.controls['preferEmail'].hasError('required') &&
+            editAcc.controls['preferEmail'].touched">Please Enter a Preferred Email</div>
+          </div>
           <div class="row" id="text-fields">
             <div class="col-md-6" >
               <label>Preferred Email</label>
             </div>
             <div class="col-md-6" >
               <input type="email"  formControlName="preferEmail" placeholder="Preferred Email"
-                name="preferEmail" class="form-control" id="preferEmail" required>
+                name="preferEmail" class="form-control" id="preferEmail" 
+                pattern="^\w+[\w-\.]*\@\w+((-\w+)|(\w*))\.[a-z]{2,3}$"
+                required>
             </div>
           </div>
 
@@ -101,6 +123,11 @@
         <div class="card-header bg-info">Room Details</div>
         <div class="card-body">
 
+          <div class="row">
+            <div class="col-md-6"></div>
+            <div class="error" *ngIf="editAcc.controls['titleRm'].hasError('required') &&
+            editAcc.controls['titleRm'].touched">Please Enter a Room Title</div>
+          </div>
           <div class="row" id="text-fields">
             <div class="col-md-6">
               <label>Room Title</label>
@@ -111,6 +138,11 @@
             </div>
           </div>
 
+          <div class="row">
+            <div class="col-md-6"></div>
+            <div class="error" *ngIf="editAcc.controls['descripRm'].hasError('required') &&
+            editAcc.controls['descripRm'].touched">Please Enter a Description of the Room</div>
+          </div>
           <div class="row" id="text-fields">
             <div class="col-md-6" >
               <label>Description</label>
@@ -121,6 +153,11 @@
             </div>
           </div>
 
+          <div class="row">
+            <div class="col-md-6"></div>
+            <div class="errorAddr" *ngIf="editAcc.controls['addrRm'].hasError('required') &&
+            editAcc.controls['addrRm'].touched">Please Enter a Address for the Room. We won't disclose this information until a swap has been agreed</div>
+          </div>
           <div class="row" id="text-fields">
             <div class="col-md-6" >
               <label>Address</label>
@@ -131,6 +168,11 @@
             </div>
           </div>
 
+          <div class="row">
+            <div class="col-md-6"></div>
+            <div class="error" *ngIf="editAcc.controls['county'].hasError('required') &&
+            editAcc.controls['county'].touched">Please Enter the County</div>
+          </div>
           <div class="row" id="text-fields">
             <div class="col-md-6">
               <label>County</label>

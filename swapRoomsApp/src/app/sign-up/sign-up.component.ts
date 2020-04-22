@@ -20,6 +20,13 @@ export class SignUpComponent implements OnInit {
 
   ngOnInit() {
   
+    // if signed in, there will be a token
+    this.token = window.localStorage.getItem('token');
+
+    if(this.token){
+      this.router.navigate(['/Account']);
+    }
+
     this.addForm = this.fb.group({
      email: ['', Validators.required, Validators.email],
      password: ['', Validators.required],

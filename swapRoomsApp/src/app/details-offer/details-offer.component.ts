@@ -62,35 +62,35 @@ export class DetailsOfferComponent implements OnInit {
 
          // Image list
          this.imageObject = [{
-          image: 'http://localhost:80/Test_Login_SwapRms/fileUpload/'+this.offer.pathToImages+'/rm1',
-          thumbImage: 'http://localhost:80/Test_Login_SwapRms/fileUpload/'+this.offer.pathToImages+'/rm1'
+          image: 'http://35.246.80.226/Test_Login_SwapRms/fileUpload/'+this.offer.pathToImages+'rm1',
+          thumbImage: 'http://35.246.80.226/Test_Login_SwapRms/fileUpload/'+this.offer.pathToImages+'rm1'
          },{
-          image: 'http://localhost:80/Test_Login_SwapRms/fileUpload/'+this.offer.pathToImages+'/rm2', 
-          thumbImage: 'http://localhost:80/Test_Login_SwapRms/fileUpload/'+this.offer.pathToImages+'/rm2'
+          image: 'http://35.246.80.226/Test_Login_SwapRms/fileUpload/'+this.offer.pathToImages+'rm2', 
+          thumbImage: 'http://35.246.80.226/Test_Login_SwapRms/fileUpload/'+this.offer.pathToImages+'rm2'
           },{
-          image: 'http://localhost:80/Test_Login_SwapRms/fileUpload/'+this.offer.pathToImages+'/rm3',
-          thumbImage: 'http://localhost:80/Test_Login_SwapRms/fileUpload/'+this.offer.pathToImages+'/rm3'
+          image: 'http://35.246.80.226/Test_Login_SwapRms/fileUpload/'+this.offer.pathToImages+'rm3',
+          thumbImage: 'http://35.246.80.226/Test_Login_SwapRms/fileUpload/'+this.offer.pathToImages+'rm3'
           },{
-          image: 'http://localhost:80/Test_Login_SwapRms/fileUpload/'+this.offer.pathToImages+'/rm4',
-          thumbImage: 'http://localhost:80/Test_Login_SwapRms/fileUpload/'+this.offer.pathToImages+'/rm4'
+          image: 'http://35.246.80.226/Test_Login_SwapRms/fileUpload/'+this.offer.pathToImages+'rm4',
+          thumbImage: 'http://35.246.80.226/Test_Login_SwapRms/fileUpload/'+this.offer.pathToImages+'rm4'
           },{
-          image: 'http://localhost:80/Test_Login_SwapRms/fileUpload/'+this.offer.pathToImages+'/rm5',
-          thumbImage: 'http://localhost:80/Test_Login_SwapRms/fileUpload/'+this.offer.pathToImages+'/rm5'
+          image: 'http://35.246.80.226/Test_Login_SwapRms/fileUpload/'+this.offer.pathToImages+'rm5',
+          thumbImage: 'http://35.246.80.226/Test_Login_SwapRms/fileUpload/'+this.offer.pathToImages+'rm5'
           },{
-          image: 'http://localhost:80/Test_Login_SwapRms/fileUpload/'+this.offer.pathToImages+'/rm6',
-          thumbImage: 'http://localhost:80/Test_Login_SwapRms/fileUpload/'+this.offer.pathToImages+'/rm6'
+          image: 'http://35.246.80.226/Test_Login_SwapRms/fileUpload/'+this.offer.pathToImages+'rm6',
+          thumbImage: 'http://35.246.80.226/Test_Login_SwapRms/fileUpload/'+this.offer.pathToImages+'rm6'
           },{
-          image: 'http://localhost:80/Test_Login_SwapRms/fileUpload/'+this.offer.pathToImages+'/rm7',
-          thumbImage: 'http://localhost:80/Test_Login_SwapRms/fileUpload/'+this.offer.pathToImages+'/rm7'
+          image: 'http://35.246.80.226/Test_Login_SwapRms/fileUpload/'+this.offer.pathToImages+'rm7',
+          thumbImage: 'http://35.246.80.226/Test_Login_SwapRms/fileUpload/'+this.offer.pathToImages+'rm7'
           },{
-          image: 'http://localhost:80/Test_Login_SwapRms/fileUpload/'+this.offer.pathToImages+'/rm8',
-          thumbImage: 'http://localhost:80/Test_Login_SwapRms/fileUpload/'+this.offer.pathToImages+'/rm8'
+          image: 'http://35.246.80.226/Test_Login_SwapRms/fileUpload/'+this.offer.pathToImages+'rm8',
+          thumbImage: 'http://35.246.80.226/Test_Login_SwapRms/fileUpload/'+this.offer.pathToImages+'rm8'
           },{
-          image: 'http://localhost:80/Test_Login_SwapRms/fileUpload/'+this.offer.pathToImages+'/rm9',
-          thumbImage: 'http://localhost:80/Test_Login_SwapRms/fileUpload/'+this.offer.pathToImages+'/rm9'
+          image: 'http://35.246.80.226/Test_Login_SwapRms/fileUpload/'+this.offer.pathToImages+'rm9',
+          thumbImage: 'http://35.246.80.226/Test_Login_SwapRms/fileUpload/'+this.offer.pathToImages+'rm9'
           },{
-          image: 'http://localhost:80/Test_Login_SwapRms/fileUpload/'+this.offer.pathToImages+'/rm10',
-          thumbImage: 'http://localhost:80/Test_Login_SwapRms/fileUpload/'+this.offer.pathToImages+'/rm10'
+          image: 'http://35.246.80.226/Test_Login_SwapRms/fileUpload/'+this.offer.pathToImages+'rm10',
+          thumbImage: 'http://35.246.80.226/Test_Login_SwapRms/fileUpload/'+this.offer.pathToImages+'rm10'
           }];
          break;
         }

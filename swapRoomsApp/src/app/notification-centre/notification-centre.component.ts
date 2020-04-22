@@ -35,6 +35,8 @@ export class NotificationCentreComponent implements OnInit {
   closedOffersNull: boolean = false;
   pendingNull: boolean;
   closedNull: boolean;
+  image: string;
+  offer: any;
   
 
   constructor( private apiService: UserCredentialsService, private fb : FormBuilder, private router: Router) { }
@@ -52,6 +54,14 @@ export class NotificationCentreComponent implements OnInit {
     this.email = window.localStorage.getItem('email');
     this.userId = window.localStorage.getItem('userId');
 
+    this.apiService.getImages(this.userId).subscribe((data:any)=>{
+      this.offer = data;
+
+
+      this.image = 'http://35.246.80.226:80/Test_Login_SwapRms/fileUpload/'+this.offer.pathToImages+'rm1';
+      
+    });
+
     // Gets info from account table in db
     this.apiService.getNotifications(this.userId).subscribe((data:any)=>{
       // display info on screen when comes back
@@ -61,7 +71,6 @@ export class NotificationCentreComponent implements OnInit {
       let openCnt = 0;
       let pendingCnt = 0;
       let closedCnt = 0;
-      console.log(this.offers.length);
       for(let i=0; i<this.offers.length; i++){
         if(this.offers[i]['status']== "open"){
           openCnt++;
@@ -118,6 +127,10 @@ export class NotificationCentreComponent implements OnInit {
 
   openNotification(acceptor, offerId){
     this.router.navigate(['viewDetailOffer/'+acceptor+'/'+offerId]);
+  }
+
+  editOffer(offerId){
+    this.router.navigate(['createOffer/'+offerId])
   }
 
   oneTab(){

@@ -13,11 +13,19 @@ export class LoginComponent implements OnInit {
   loginForm : FormGroup;
   invalidLogin: boolean = false;
   message: any;
+  token: string;
   
   // inject into contrustor so they can be utilised 
   constructor(private fb : FormBuilder, private router: Router , private apiService: UserCredentialsService) { }
 
   ngOnInit() {
+
+    // if signed in, there will be a token
+    this.token = window.localStorage.getItem('token');
+    
+    if(this.token){
+      this.router.navigate(['/Account']);
+    }
     // When page loads, empty the fields username & password
    this.loginForm = this.fb.group({
      username: ['', Validators.compose([Validators.required])],
