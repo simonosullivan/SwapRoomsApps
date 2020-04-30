@@ -25,7 +25,7 @@
     "angular-material-css-vars": "^0.3.8",
     "bootstrap": "^4.0.0-alpha.6",
     "core-js": "^2.5.4",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "ng-image-slider": "^2.4.1",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
